@@ -53,9 +53,7 @@ Template Name: Archive
 </div>
 <?php // END OF ARCHIVE PAGE BANNER ?>
 
-<div id="primary" style="
-	<?php echo (isset($banner_height) && $banner_height != '') ? 'top:'.strval(intval($banner_height)-495).'px; margin-bottom:'.strval(intval($banner_height)-495).'px' : 'top:-450px; margin-bottom:-450px;'; ?>;
-	">
+<div id="primary" class="container">
 
 	<?php // background left ?>
 	<!-- <div class="container-left"></div> -->
@@ -64,9 +62,9 @@ Template Name: Archive
 	<!-- <div class="container-right"></div>  -->
 
 	<?php // content ?>
-	<div class="container" id="content-container">
+	<div class="row-fluid" id="content-container">
 		<!-- <div id="container-inside"> -->
-			<div id="content" class="span7">
+			<div id="content" class="span8">
 				<?php
 					$back_url = htmlspecialchars($_SERVER['HTTP_REFERER']);
 					echo "<a href='{$back_url}' class='list' action='action' type='button'>Back to previous page</a>";
@@ -131,7 +129,7 @@ Template Name: Archive
 					<script type="IN/Share" data-url="<?php echo $social_link; ?>" data-counter="right"></script>
 				</div>
 
-				<div class="divider" style="width:100%;margin:50px 0;position:relative;"><img src="<?php echo bloginfo('template_url') . '/images/horizontal_divider_logo.png'; ?>" class="footer-logo"></div>
+				<div class="osdivider"></div>
 				
 				<?php endwhile; ?>
 				<?php endif; ?>
@@ -139,20 +137,6 @@ Template Name: Archive
 				<?php // PAGINATE POSTS HERE ?>
 				<?php kriesi_pagination('', 2); ?>
 
-			</div>
-			<div id="sidebar" class="span4">
-				<?php $thispage = get_page_by_title($page_title); ?>
-				<?php if (empty($this_page)){
-						$parent_cat = get_category($temp->category_parent);
-						$parent_page = get_page_by_title($parent_cat->name);
-					}
-				 ?>
-				<ul class="<?php echo $temp->name; ?> <?php echo $parent_cat->name; ?> <?php echo $thispage->post_title; ?>">
-					<!-- <li class="<?php echo (isset($thispage)) ? 'current_page_item' : ''; ?>"><a href="<?php echo get_permalink( isset($thispage) ? $thispage->ID : $parent_page->ID); ?>"><?php echo get_the_title( isset($thispage) ? $thispage->ID : $parent_page->ID ); ?></a></li> -->
-			    	<?php wp_list_categories( array('child_of' => isset($parent_cat) ? $parent_cat->cat_ID : $temp->cat_ID, 'title_li' => '', 'show_option_none' => '') ); ?>
-			    </ul> 
-				<?php dynamic_sidebar('sidebar'); ?>
-				<?php if (is_dynamic_sidebar()) wp_enqueue_script('custom-widgets', get_template_directory_uri().'/js/widgets.js', array('jquery')); ?>
 			</div>
 		<!-- </div> --> 	<?php // end of inside container ?>
 	</div> 	<?php // end of container ?>

@@ -639,8 +639,23 @@ function page_title() {
 add_shortcode('page_title', 'page_title');
 
 function filter_by_categories() {
-	
+	// $categories = get_categories();
+	// $categories_array = array();
+	// foreach ($categories as $key => $value) {
+	// 	print_r($value->name);
+	// 	print_r($value->cat_ID);
+	// 	echo get_category_link($value->cat_ID);
+	// 	array_push($categories_array, $value->name);
+	// 	echo "</br>";
+	// }
+
+	return wp_list_categories( array('exclude' => '7', 'echo' => 0));
 }
 add_shortcode('filter_by_categories', 'filter_by_categories');
+
+function filter_by_months() {
+	return wp_get_archives( array('limit' => 6, 'echo' => 0));
+}
+add_shortcode('filter_by_months', 'filter_by_months');
 
 ?>
