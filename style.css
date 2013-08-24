@@ -1,0 +1,95 @@
+/*
+Theme Name: OS Integration 2013 Theme
+Theme URI: http://www.onescreen.com/
+Author: Yi-Chien Vincent Ho
+Author URI: http://www.onescreen.com/
+Description: OneScreen.com theme integration with MediaGraph. Created August
+Version: 1.0
+*/
+
+/* Previous and Next link for blog page */
+.prev {
+	float: left;
+	width: 50%;
+}
+.next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/* Footer CSS */
+#footer-content {
+	clear: both;
+}
+
+/* osdivider */
+.osdivider {
+    background-image: url("http://www.onescreen.com/wp-content/themes/NewOneScreen/images/horizontal_divider_logo.png"), url("http://www.onescreen.com/files/divider_line.gif");
+    background-position: center center, left center;
+    background-repeat: no-repeat, repeat-x;
+    height: 17px;
+    margin: 0 auto;
+    padding: 50px 0;
+    width: 100%;
+}
+
+.masthead {
+    background: url("http://www.onescreen.com/files/mediagraph_bg.jpg") repeat scroll center center transparent;
+    color: #FFFFFF;
+    height: auto;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    padding: 50px 0;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+.masthead h1 {
+    font-size: 56px;
+    line-height: 68px;
+}
+.masthead p {
+    font-size: 36px;
+    line-height: 48px;
+}
+p, li {
+    font-size: 16px;
+    line-height: 28px;
+}
+.thumbnail img {
+    margin-bottom: 10px;
+}
+.tabs-left > .nav-tabs {
+    border-right: 1px solid #DDDDDD;
+    float: left;
+    margin-right: 19px;
+    width: 225px;
+}
+#header {
+    height: 80px;
+    margin-top: 15px;
+}
+footer {
+    background: none repeat scroll 0 0 #E6E6E6;
+    float: left;
+    margin-top: 80px;
+    width: 100%;
+}
+#footer-content {
+    color: #808080;
+    margin-top: 40px;
+}
+#footer-content p {
+    font-size: 13px;
+    line-height: 18px;
+}
+#footer-content a {
+    color: #808080;
+    font-size: 12px;
+    line-height: 14px;
+}
+blockquote p {
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 18px;
+}
