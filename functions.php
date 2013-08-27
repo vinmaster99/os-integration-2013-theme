@@ -5,6 +5,9 @@ remove_filter('the_content', 'wpautop');
 // Allows shortcodes to be used on the site
 include 'shortcodes.php';
 
+// Add Widgets
+require_once( TEMPLATEPATH . '/widgets.php' );
+
 // Include navigation menus
 register_nav_menu( 'header-menu', 'Header Navigation' );
 
