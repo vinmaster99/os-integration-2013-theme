@@ -74,32 +74,7 @@
 			<h1 id="post-title"><?php echo $post->post_title; ?></h1>
 
 			<?php // Social div ?>
-			<div class="social">
-				<?php $social_link = get_permalink(); ?>
-				<?php // Facebook ?>
-				<div class='facebook-share' style="clear:both;">
-				<div style="margin-top: -2px; float:left;"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $social_link; ?>" target="_blank"><img src="http://www.onescreen.com/files/fb_share_button.png"></a></div>
-				<div class="arrow_box pluginCountButton">0</div>
-				</div>
-				<?php // Twitter ?>
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo $social_link; ?>" data-text="<?php echo get_the_title(); ?>" data-via="onescreen">Tweet</a>
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-				<?php // Google+ ?>
-				<div class="g-plus" data-action="share" data-annotation="bubble" data-href="<?php echo $social_link; ?>"></div>
-				<!-- Place this tag after the last share tag. -->
-				<script type="text/javascript">
-				  (function() {
-				    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-				    po.src = 'https://apis.google.com/js/plusone.js';
-				    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-				  })();
-				</script>
-				<?php //Linkedin ?>
-				<script src="//platform.linkedin.com/in.js" type="text/javascript">
-				 lang: en_US
-				</script>
-				<script type="IN/Share" data-url="<?php echo $social_link; ?>" data-counter="right"></script>
-			</div>
+			<?php social_div(); ?>
 			
 			<?php $category_object = get_the_category($post->ID); ?>
 			<?php $temp = $category_object[0]; ?>
@@ -130,7 +105,7 @@
 			
 			<?php
 				// Cat to exclude for previous and next post links
-				$cat_to_include = get_cat_array();
+				$cat_to_include = get_blog_categories();
 				$cat_ID_to_exclude = array();
 				foreach ($cat_to_include as $key => $value) {
 					array_push($cat_ID_to_exclude, get_cat_ID($value));

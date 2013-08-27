@@ -18,12 +18,111 @@ Version: 1.0
 	width: 50%;
 }
 
+.arrow_box {
+    position: relative;
+    background: #fff;
+    border: 1px solid #c1c1c1;
+}
+.arrow_box:after, .arrow_box:before {
+    right: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow_box:after {
+    border-color: rgba(255, 255, 255, 0);
+    border-right-color: #fff;
+    border-width: 4px;
+    top: 50%;
+    margin-top: -4px;
+}
+.arrow_box:before {
+    border-color: rgba(193, 193, 193, 0);
+    border-right-color: #c1c1c1;
+    border-width: 5px;
+    top: 50%;
+    margin-top: -5px;
+}
+
+.pluginCountButton {
+    background: #fff;
+    border: 1px solid #c1c1c1;
+    height: 14px;
+    line-height: 14px;
+    margin-right: 6px;
+    margin-left: 6px;
+    min-width: 10px;
+    padding: 1px 2px;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+    font-size: 11px;
+    max-width: 25px;
+    float: left;
+    min-height: 14px;
+    padding-top: 3px;
+}
+
 /* Footer CSS */
 #footer-content {
 	clear: both;
 }
 
-/* osdivider */
+ul, li {
+    list-style: none;
+}
+
+body {
+    font-family: 'Droid Sans', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Droid Sans', sans-serif !important;
+}
+
+/* Twitter stream font */
+.stream {
+    font-family: 'Droid Sans', sans-serif !important;
+}
+
+/* Start of merge.css */
+.masthead {
+    background: url("http://www.onescreen.com/files/mediagraph_bg.jpg") repeat scroll center center transparent;
+    color: #FFFFFF;
+    height: auto;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    padding: 40px 0;
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+.masthead p {
+    font-size: 125%;
+    font-weight: 700;
+    line-height: 150%;
+}
+h1 {
+    font-size: 200%;
+    line-height: 150%;
+}
+h2, h3, h4, h5 {
+    font-size: 100%;
+    line-height: 150%;
+}
+p, li, a {
+    font-size: 14px;
+    line-height: 22px;
+}
+small {
+    line-height: 18px;
+}
+.thumbnail img {
+    margin-bottom: 10px;
+}
 .osdivider {
     background-image: url("http://www.onescreen.com/wp-content/themes/NewOneScreen/images/horizontal_divider_logo.png"), url("http://www.onescreen.com/files/divider_line.gif");
     background-position: center center, left center;
@@ -32,32 +131,6 @@ Version: 1.0
     margin: 0 auto;
     padding: 50px 0;
     width: 100%;
-}
-
-.masthead {
-    background: url("http://www.onescreen.com/files/mediagraph_bg.jpg") repeat scroll center center transparent;
-    color: #FFFFFF;
-    height: auto;
-    margin-bottom: 25px;
-    margin-top: 15px;
-    padding: 50px 0;
-    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-    width: 100%;
-}
-.masthead h1 {
-    font-size: 56px;
-    line-height: 68px;
-}
-.masthead p {
-    font-size: 36px;
-    line-height: 48px;
-}
-p, li {
-    font-size: 16px;
-    line-height: 28px;
-}
-.thumbnail img {
-    margin-bottom: 10px;
 }
 .tabs-left > .nav-tabs {
     border-right: 1px solid #DDDDDD;
@@ -92,4 +165,21 @@ blockquote p {
     font-size: 13px;
     font-weight: normal;
     line-height: 18px;
+}
+.os-btn {
+    background-color: #0093DB;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 20px 15px 0;
+    padding: 8px 17px;
+    text-align: center;
+    vertical-align: middle;
+}
+.os-btn:hover {
+    background-color: #009CE9;
+    color: #FFFFFF;
+    text-decoration: none;
 }

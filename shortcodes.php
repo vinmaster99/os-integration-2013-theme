@@ -577,8 +577,12 @@ function blog_posts($attributes) {
 	$content = '';
 
 	while ($wp_query->have_posts()) {
-
 		$wp_query->the_post();
+
+		$category = get_the_category();
+		if (in_array($category[0]->name, get_blog_categories()) === false) {
+			continue;
+		}
 
 		$content .= '<h2><a href="'.get_permalink().'" title="Read more">'.get_the_title().'</a></h2>';
 
@@ -601,6 +605,8 @@ function blog_posts($attributes) {
 		$content .= '</div>';
 		$content .= get_the_excerpt();
 		$content .= '<p><a href="'. get_permalink().'class="keep-reading">Keep Reading</a></p>';
+
+		$content .= social_div_text();
 
 		$content .= '<div class="osdivider"></div>';
 	}
@@ -628,13 +634,75 @@ function blog_posts($attributes) {
 add_shortcode('blog_posts', 'blog_posts');
 
 function press_posts() {
+	global $wp_query, $paged, $post;
+	$page_title = get_the_title($post->ID);
 
+	$temp = $wp_query; $wp_query= null;
+	$wp_query = new WP_Query(); $wp_query->query('showposts=10' . '&paged='.$paged);
+	
+	$content = '';
+
+	while ($wp_query->have_posts()) {
+		$wp_query->the_post();
+
+		$category = get_the_category();
+		if (in_array($category[0]->name, get_press_categories()) === false) {
+			continue;
+		}
+
+		$content .= '<h2><a href="'.get_permalink().'" title="Read more">'.get_the_title().'</a></h2>';
+
+		$category_object = get_the_category($post->ID);
+		$temp = $category_object[0];
+		$category_link = get_category_link($temp->cat_ID);
+		$author_id = $post->post_author; $user = get_userdata($author_id); $author_name = $user->first_name . ' ' . $user->last_name;
+		
+		$content .= '<div class="cat-date-author"><a href="';
+		$content .= $category_link.'">';
+		$content .= $temp->name;
+		$content .= '</a><span> &nbsp;|&nbsp; </span><span>';
+		$content .= mysql2date('F j, Y', $post->post_date);
+		$content .= '</span>';
+		if (stripos(strtolower($page_title), 'blog') !== false) {
+			$content .= '<span>&nbsp;|&nbsp; </span><a href="';
+			$content .= get_author_posts_url($post->post_author);
+			$content .= '">By '.$author_name.'</a>';
+		}
+		$content .= '</div>';
+		$content .= get_the_excerpt();
+		$content .= '<p><a href="'. get_permalink().'class="keep-reading">Keep Reading</a></p>';
+
+		$content .= social_div_text();
+
+		$content .= '<div class="osdivider"></div>';
+	}
+
+	if ($paged > 1) {
+
+	$content .= '<nav id="nav-posts"><div class="prev">';
+	$content .= get_next_posts_link("&laquo; Older Posts");
+	$content .= '</div><div class="next">';
+	$content .= get_previous_posts_link("Newer Posts &raquo;");
+	$content .= '</div></nav>';
+
+	} else {
+
+	$content .= '<nav id="nav-posts"><div class="prev">';
+	$content .= get_next_posts_link("&laquo; Older Posts");
+	$content .= '</div></nav>';
+
+	}
+
+	wp_reset_postdata();
+
+	return $content;
 }
 add_shortcode('press_posts', 'press_posts');
 
 function page_title() {
 	global $post;
 	$page_title = get_the_title($post->ID);
+	return $page_title;
 }
 add_shortcode('page_title', 'page_title');
 
@@ -649,7 +717,9 @@ function filter_by_categories() {
 	// 	echo "</br>";
 	// }
 
-	return wp_list_categories( array('exclude' => '7', 'echo' => 0));
+	$page_id = get_cat_ID( 'Press' );
+
+	return wp_list_categories( array('exclude' => $page_id, 'echo' => 0, 'title_li' => ''));
 }
 add_shortcode('filter_by_categories', 'filter_by_categories');
 
@@ -657,5 +727,43 @@ function filter_by_months() {
 	return wp_get_archives( array('limit' => 6, 'echo' => 0));
 }
 add_shortcode('filter_by_months', 'filter_by_months');
+
+function blog_categories() {
+	return print_r($get_blog_categories(), true);
+}
+add_shortcode('blog_categories', 'blog_categories');
+
+function newsletter() {
+	$content = '<div class="row-fluid"><h2>Newsletter</h2>
+	<p>Sign up to receive updates from OneScreen</p>
+	<form action="http://newsletter.onescreen.com/t/t/s/tyqh/" method="post">
+	<div class="row-fluid">
+	<div class=""><label for="fieldName">Name</label></div>
+	<div class="span12"><input id="fieldName" name="cm-name" type="text" /></div>
+	</div>
+	<div class="row-fluid">
+	<div class=""><label for="fieldEmail">Email</label></div>
+	<div class="span12"><input id="fieldEmail" name="cm-tyqh-tyqh" type="email" required /></div>
+	</div>
+	<button class="btn btn-block btn-primary" type="submit">Subscribe</button>
+	</form></div>';
+	return $content;
+}
+add_shortcode('newsletter', 'newsletter');
+
+function search_bar() {
+	$content = '<form method="get" id="searchform" action="'.home_url().'/">
+	<label>Search</label><input type="text" class="input" value="';
+	$content .= '" name="s" id="s" /><input type="submit" id="searchsubmit" value="Search" /></form>';
+	return $content;
+}
+add_shortcode('search_bar', 'search_bar');
+
+function twitter_feed() {
+	$content = '<a class="twitter-timeline" href="https://twitter.com/onescreen" data-widget-id="372162085943123968">Tweets by @onescreen</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+';
+	return $content;
+}
+add_shortcode('twitter_feed', 'twitter_feed');
 
 ?>

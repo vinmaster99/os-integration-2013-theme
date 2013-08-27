@@ -293,13 +293,8 @@ function wordpress_onescreen_comment( $comment, $args, $depth ) {
 }
 endif;
 
-// Get the array of categories for blog page
-function get_cat_array() {
-	return array('Television', 'Video Industry', 'Opinions', 'Video Piracy', 'Cable Television', 'Content Partnerships', 'Industry Events', 'Tech');
-}
-
 function kriesi_pagination($pages = '', $range = 2)
-{  
+{
 	// enqueue pagination.css to prettify our pagination links
 	wp_enqueue_style('custom-pagination-style', get_template_directory_uri().'/pagination.css' );
      $showitems = ($range * 2)+1;  
@@ -352,6 +347,76 @@ function register_jquery(){
 
 function get_blog_categories() {
 	// get the categories for blog posts
+	$page_id = get_page_by_title( 'Blog' );
+	$cat_string = get_post_meta($page_id->ID, 'categories', true);
+	$cat_array = explode(',', $cat_string);
+	return $cat_array;
+}
+
+function get_press_categories() {
+	// get the categories for blog posts
+	$page_id = get_page_by_title( 'Press' );
+	$cat_string = get_post_meta($page_id->ID, 'categories', true);
+	$cat_array = explode(',', $cat_string);
+	return $cat_array;
+}
+
+function social_div() {
+	?>
+	<div class="social">
+		<?php $social_link = get_permalink(); ?>
+		<?php // Facebook ?>
+		<div class='facebook-share' style="clear:both;">
+		<div style="margin-top: -2px; float:left;"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $social_link; ?>" target="_blank"><img src="http://www.onescreen.com/files/fb_share_button.png"></a></div>
+		<div class="arrow_box pluginCountButton">0</div>
+		</div>
+		<?php // Twitter ?>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo $social_link; ?>" data-text="<?php echo get_the_title(); ?>" data-via="onescreen">Tweet</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		<?php // Google+ ?>
+		<div class="g-plus" data-action="share" data-annotation="bubble" data-href="<?php echo $social_link; ?>"></div>
+		<!-- Place this tag after the last share tag. -->
+		<script type="text/javascript">
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>
+		<?php //Linkedin ?>
+		<script src="//platform.linkedin.com/in.js" type="text/javascript">
+		 lang: en_US
+		</script>
+		<script type="IN/Share" data-url="<?php echo $social_link; ?>" data-counter="right"></script>
+	</div>
+	<?php
+}
+
+function social_div_text() {
+	$content = '<div class="social">';
+	$social_link = get_permalink();
+
+	$content .= '<div class="facebook-share">';
+	$content .= '<div style="margin-top: -2px; float:left;"><a href="https://www.facebook.com/sharer/sharer.php?u='.$social_link.'" target="_blank"><img src="http://www.onescreen.com/files/fb_share_button.png"></a></div>';
+	$content .= '<div class="arrow_box pluginCountButton">0</div></div>';
+
+	$content .= '<a href="https://twitter.com/share" class="twitter-share-button" data-url="'.$social_link.'" data-text="'.get_the_title().'" data-via="onescreen">Tweet</a>';
+	$content .= '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script>';
+
+	$content .= '<div class="g-plus" data-action="share" data-annotation="bubble" data-href="'.$social_link.'"></div>';
+	$content .= "<script type='text/javascript'>
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>";
+
+	$content .= '<script src="//platform.linkedin.com/in.js" type="text/javascript">';
+	$content .= 'lang: en_US</script>';
+	$content .= '<script type="IN/Share" data-url="'.$social_link.'" data-counter="right"></script>';
+	$content .= '</div>';
+	return $content;
 }
 
 ?>
