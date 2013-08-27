@@ -129,5 +129,7 @@
 	<!-- </div> -->
 </div>
 
+<?php // This is for the facebook counters ?>
+<?php wp_enqueue_script('social_sharing', get_template_directory_uri().'/js/social.js', array('jquery')); ?>
 
 <?php get_footer(); ?>

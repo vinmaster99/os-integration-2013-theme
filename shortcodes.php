@@ -627,6 +627,9 @@ function blog_posts($attributes) {
 
 	}
 
+	// This is for the facebook counters
+	wp_enqueue_script('social_sharing', get_template_directory_uri().'/js/social.js', array('jquery'));
+
 	wp_reset_postdata();
 
 	return $content;
@@ -693,6 +696,9 @@ function press_posts() {
 
 	}
 
+	// This is for the facebook counters
+	wp_enqueue_script('social_sharing', get_template_directory_uri().'/js/social.js', array('jquery'));
+
 	wp_reset_postdata();
 
 	return $content;
@@ -744,8 +750,7 @@ function newsletter() {
 	<div class="row-fluid">
 	<div class=""><label for="fieldEmail">Email</label></div>
 	<div class="span12"><input id="fieldEmail" name="cm-tyqh-tyqh" type="email" required /></div>
-	</div>
-	<button class="btn btn-block btn-primary" type="submit">Subscribe</button>
+	</div><button class="btn btn-primary" type="submit">Subscribe</button>
 	</form></div>';
 	return $content;
 }
@@ -753,12 +758,13 @@ add_shortcode('newsletter', 'newsletter');
 
 function search_bar() {
 	$content = '<form method="get" id="searchform" action="'.home_url().'/">
-	<label>Search</label><input type="text" class="input" value="';
-	$content .= '" name="s" id="s" /><input type="submit" id="searchsubmit" value="Search" /></form>';
+	<input type="text" class="input" value="';
+	$content .= '" name="s" id="s" /></br><input type="submit" id="searchsubmit" value="Search" /></form>';
 	return $content;
 }
 add_shortcode('search_bar', 'search_bar');
 
+// Use Twitter's widget and embeded on the website
 function twitter_feed() {
 	$content = '<a class="twitter-timeline" href="https://twitter.com/onescreen" data-widget-id="372162085943123968">Tweets by @onescreen</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 ';

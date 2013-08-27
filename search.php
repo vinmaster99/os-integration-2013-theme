@@ -8,6 +8,7 @@
 	<div class="row-fluid">
 		<div class="span7">
 			<?php
+			// This is the back button
 			$back_url = htmlspecialchars($_SERVER['HTTP_REFERER']);
 			echo "<a href='{$back_url}' class='list' action='action' type='button'>Back to previous page</a>";
 			?>
@@ -75,9 +76,11 @@
 		<?php $page_id = 5409; ?>
 		<?php $parent_page = get_page($page_id);//$parent_id); ?>
 		<?php dynamic_sidebar('sidebar'); ?>
-		<?php wp_enqueue_script('custom-widgets', get_template_directory_uri().'/js/widgets.js', array('jquery')); ?>
 	</div>
 </div>
 </div>
+
+<?php // This is for the facebook counters ?>
+<?php wp_enqueue_script('social_sharing', get_template_directory_uri().'/js/social.js', array('jquery')); ?>
 
 <?php get_footer(); ?>
