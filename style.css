@@ -18,6 +18,10 @@ Version: 1.0
 	width: 50%;
 }
 
+/* Social div */
+.social {
+    margin-left: 0px;
+}
 .arrow_box {
     position: relative;
     background: #fff;
@@ -32,7 +36,6 @@ Version: 1.0
     position: absolute;
     pointer-events: none;
 }
-
 .arrow_box:after {
     border-color: rgba(255, 255, 255, 0);
     border-right-color: #fff;
@@ -47,7 +50,6 @@ Version: 1.0
     top: 50%;
     margin-top: -5px;
 }
-
 .pluginCountButton {
     background: #fff;
     border: 1px solid #c1c1c1;
@@ -65,6 +67,9 @@ Version: 1.0
     float: left;
     min-height: 14px;
     padding-top: 3px;
+}
+.twitter-share-button {
+    width: 80px !important;
 }
 
 /* Footer CSS */

@@ -606,7 +606,7 @@ function blog_posts($attributes) {
 		$content .= get_the_excerpt();
 		$content .= '<p><a href="'. get_permalink().'class="keep-reading">Keep Reading</a></p>';
 
-		$content .= social_div_text();
+		// $content .= social_div_text();
 
 		$content .= '<div class="osdivider"></div>';
 	}
@@ -658,7 +658,6 @@ function press_posts() {
 		$category_object = get_the_category($post->ID);
 		$temp = $category_object[0];
 		$category_link = get_category_link($temp->cat_ID);
-		$author_id = $post->post_author; $user = get_userdata($author_id); $author_name = $user->first_name . ' ' . $user->last_name;
 		
 		$content .= '<div class="cat-date-author"><a href="';
 		$content .= $category_link.'">';
@@ -666,16 +665,11 @@ function press_posts() {
 		$content .= '</a><span> &nbsp;|&nbsp; </span><span>';
 		$content .= mysql2date('F j, Y', $post->post_date);
 		$content .= '</span>';
-		if (stripos(strtolower($page_title), 'blog') !== false) {
-			$content .= '<span>&nbsp;|&nbsp; </span><a href="';
-			$content .= get_author_posts_url($post->post_author);
-			$content .= '">By '.$author_name.'</a>';
-		}
 		$content .= '</div>';
 		$content .= get_the_excerpt();
 		$content .= '<p><a href="'. get_permalink().'class="keep-reading">Keep Reading</a></p>';
 
-		$content .= social_div_text();
+		// $content .= social_div_text();
 
 		$content .= '<div class="osdivider"></div>';
 	}
