@@ -72,11 +72,6 @@
 
 	</div>
 	<?php wp_reset_query(); global $post; ?>
-	<div id="sidebar" class="span4">
-		<?php $page_id = 5409; ?>
-		<?php $parent_page = get_page($page_id);//$parent_id); ?>
-		<?php dynamic_sidebar('sidebar'); ?>
-	</div>
 </div>
 </div>
 
