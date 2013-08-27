@@ -766,4 +766,9 @@ function twitter_feed() {
 }
 add_shortcode('twitter_feed', 'twitter_feed');
 
+function about_onescreen_sidebar() {
+	return '<a href="http://company.onescreen.com/about">About OneScreen</a>';
+}
+add_shortcode('about_onescreen_sidebar', 'about_onescreen_sidebar');
+
 ?>
