@@ -84,11 +84,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Droid Sans', sans-serif !important;
 }
 
-/* Twitter stream font */
-.stream {
-    font-family: 'Droid Sans', sans-serif !important;
-}
-
 /* Start of merge.css */
 .masthead {
     background: url("http://www.onescreen.com/files/mediagraph_bg.jpg") repeat scroll center center transparent;
