@@ -552,7 +552,7 @@ function post_carousel($attributes) {
 		}
 		$content .= '<a href="'.$post_link.'"><img alt="" src="'.$featured_image.'"></a>';
 		$content .= '<div class="carousel-caption">';
-        $content .= '<h4>'.$post_title.'</h4>';
+        $content .= '<h1 class="header" style="color: white;">'.$post_title.'</h1>';
         $content .= '<p>'.$excerpt.'</p>';
       	$content .= '</div>';
       	$content .= '</div>';
@@ -584,23 +584,23 @@ function blog_posts($attributes) {
 			continue;
 		}
 
-		$content .= '<h2><a href="'.get_permalink().'" title="Read more">'.get_the_title().'</a></h2>';
+		$content .= '<h2 class="header"><a href="'.get_permalink().'" title="Read more">'.get_the_title().'</a></h2>';
 
 		$category_object = get_the_category($post->ID);
 		$temp = $category_object[0];
 		$category_link = get_category_link($temp->cat_ID);
 		$author_id = $post->post_author; $user = get_userdata($author_id); $author_name = $user->first_name . ' ' . $user->last_name;
 		
-		$content .= '<div class="cat-date-author"><a href="';
+		$content .= '<div class="cat-date-author"><small><a href="';
 		$content .= $category_link.'">';
 		$content .= $temp->name;
-		$content .= '</a><span> &nbsp;|&nbsp; </span><span>';
+		$content .= '</a></small><small> &nbsp;|&nbsp; </small><small>';
 		$content .= mysql2date('F j, Y', $post->post_date);
-		$content .= '</span>';
+		$content .= '</small>';
 		if (stripos(strtolower($page_title), 'blog') !== false) {
-			$content .= '<span>&nbsp;|&nbsp; </span><a href="';
+			$content .= '<small>&nbsp;|&nbsp; </small><small><a href="';
 			$content .= get_author_posts_url($post->post_author);
-			$content .= '">By '.$author_name.'</a>';
+			$content .= '">By '.$author_name.'</a></small>';
 		}
 		$content .= '</div>';
 		$content .= get_the_excerpt();
@@ -614,7 +614,7 @@ function blog_posts($attributes) {
 	if ($paged > 1) {
 
 	$content .= '<nav id="nav-posts"><div class="prev">';
-	$content .= get_next_posts_link("&laquo; Older Posts");
+	$content .= get_next_posts_link("&laquo; More Posts");
 	$content .= '</div><div class="next">';
 	$content .= get_previous_posts_link("Newer Posts &raquo;");
 	$content .= '</div></nav>';
@@ -622,7 +622,7 @@ function blog_posts($attributes) {
 	} else {
 
 	$content .= '<nav id="nav-posts"><div class="prev">';
-	$content .= get_next_posts_link("&laquo; Older Posts");
+	$content .= get_next_posts_link("&laquo; More Posts");
 	$content .= '</div></nav>';
 
 	}
@@ -653,18 +653,18 @@ function press_posts() {
 			continue;
 		}
 
-		$content .= '<h2><a href="'.get_permalink().'" title="Read more">'.get_the_title().'</a></h2>';
+		$content .= '<h2 class="header"><a href="'.get_permalink().'" title="Read more">'.get_the_title().'</a></h2>';
 
 		$category_object = get_the_category($post->ID);
 		$temp = $category_object[0];
 		$category_link = get_category_link($temp->cat_ID);
 		
-		$content .= '<div class="cat-date-author"><a href="';
+		$content .= '<div class="cat-date-author"><small><a href="';
 		$content .= $category_link.'">';
 		$content .= $temp->name;
-		$content .= '</a><span> &nbsp;|&nbsp; </span><span>';
+		$content .= '</a></small><small> &nbsp;|&nbsp; </small><small>';
 		$content .= mysql2date('F j, Y', $post->post_date);
-		$content .= '</span>';
+		$content .= '</small>';
 		$content .= '</div>';
 		$content .= get_the_excerpt();
 		$content .= '<p><a href="'. get_permalink().'class="keep-reading">Keep Reading</a></p>';
@@ -677,7 +677,7 @@ function press_posts() {
 	if ($paged > 1) {
 
 	$content .= '<nav id="nav-posts"><div class="prev">';
-	$content .= get_next_posts_link("&laquo; Older Posts");
+	$content .= get_next_posts_link("&laquo; More Press");
 	$content .= '</div><div class="next">';
 	$content .= get_previous_posts_link("Newer Posts &raquo;");
 	$content .= '</div></nav>';
@@ -685,7 +685,7 @@ function press_posts() {
 	} else {
 
 	$content .= '<nav id="nav-posts"><div class="prev">';
-	$content .= get_next_posts_link("&laquo; Older Posts");
+	$content .= get_next_posts_link("&laquo; More Press");
 	$content .= '</div></nav>';
 
 	}
@@ -734,8 +734,7 @@ function blog_categories() {
 add_shortcode('blog_categories', 'blog_categories');
 
 function newsletter() {
-	$content = '<div class="row-fluid"><h2>Newsletter</h2>
-	<p>Sign up to receive updates from OneScreen</p>
+	$content = '<div class="row-fluid">
 	<form action="http://newsletter.onescreen.com/t/t/s/tyqh/" method="post">
 	<div class="row-fluid">
 	<div class=""><label for="fieldName">Name</label></div>
@@ -744,7 +743,7 @@ function newsletter() {
 	<div class="row-fluid">
 	<div class=""><label for="fieldEmail">Email</label></div>
 	<div class="span12"><input id="fieldEmail" name="cm-tyqh-tyqh" type="email" required /></div>
-	</div><button class="btn btn-primary" type="submit">Subscribe</button>
+	</div><button class="os-btn" type="submit">Subscribe</button>
 	</form></div>';
 	return $content;
 }
@@ -753,7 +752,7 @@ add_shortcode('newsletter', 'newsletter');
 function search_bar() {
 	$content = '<form method="get" id="searchform" action="'.home_url().'/">
 	<input type="text" class="input" value="';
-	$content .= '" name="s" id="s" /></br><input type="submit" id="searchsubmit" value="Search" /></form>';
+	$content .= '" name="s" id="s" /></br><input class="os-btn" type="submit" id="searchsubmit" value="Search" /></form>';
 	return $content;
 }
 add_shortcode('search_bar', 'search_bar');
