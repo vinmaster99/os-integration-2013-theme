@@ -89,97 +89,123 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Droid Sans', sans-serif !important;
 }
 
-/* Start of merge.css */
-.masthead {
-    background: url("http://www.onescreen.com/files/mediagraph_bg.jpg") repeat scroll center center transparent;
-    color: #FFFFFF;
-    height: auto;
-    margin-bottom: 25px;
-    margin-top: 15px;
-    padding: 40px 0;
-    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-    width: 100%;
+/* Responsive CSS */
+@media screen and (max-width: 640px) {
+    .masthead {
+        clear: both;
+    }
 }
+
+/* Start of merge.css */
+/* Custom Styles */
+
+.masthead {
+    width: 100%;
+    margin-top: 15px;
+    background: url('http://www.onescreen.com/files/mediagraph_bg.jpg') center center;
+    color:#ffffff;
+    height: auto;
+    padding:40px 0;
+    margin-bottom:25px;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
 .masthead p {
     font-size: 125%;
-    font-weight: 700;
     line-height: 150%;
+    font-weight: 700;
 }
-h1 {
+
+h1.header {
     font-size: 200%;
     line-height: 150%;
 }
-h2, h3, h4, h5 {
+
+h2.header, h3.header, h4.header, h5.header {
     font-size: 100%;
     line-height: 150%;
 }
+
 p, li, a {
     font-size: 14px;
     line-height: 22px;
 }
+
 small {
-    line-height: 18px;
+    line-height:18px;
 }
+
 .thumbnail img {
-    margin-bottom: 10px;
+    margin-bottom:10px;
 }
+
 .osdivider {
+    padding: 30px 0;
+    margin: 0px auto;
+    width: 100%;
+    height: 17px;
     background-image: url("http://www.onescreen.com/wp-content/themes/NewOneScreen/images/horizontal_divider_logo.png"), url("http://www.onescreen.com/files/divider_line.gif");
     background-position: center center, left center;
     background-repeat: no-repeat, repeat-x;
-    height: 17px;
-    margin: 0 auto;
-    padding: 50px 0;
-    width: 100%;
 }
+
 .tabs-left > .nav-tabs {
-    border-right: 1px solid #DDDDDD;
     float: left;
     margin-right: 19px;
-    width: 225px;
+    border-right: 1px solid #ddd;
+    width:225px;
 }
+
+
 #header {
     height: 80px;
-    margin-top: 15px;
+    margin-top:15px;
 }
+
 footer {
-    background: none repeat scroll 0 0 #E6E6E6;
-    float: left;
-    margin-top: 80px;
+    background: #e6e6e6;
     width: 100%;
+    float: left;
+    margin-top:80px;
 }
+
 #footer-content {
-    color: #808080;
-    margin-top: 40px;
+    margin-top:40px;
+    color:#808080;
 }
+
 #footer-content p {
     font-size: 13px;
-    line-height: 18px;
+    line-height:18px;
+
 }
-#footer-content a {
-    color: #808080;
+#footer-content a{
     font-size: 12px;
-    line-height: 14px;
+    line-height:14px;
+    color:#808080;
 }
+
 blockquote p {
-    font-size: 13px;
-    font-weight: normal;
-    line-height: 18px;
+    font-size:13px;
+    line-height:18px;
+    font-weight:normal;
 }
+
 .os-btn {
-    background-color: #0093DB;
-    color: #FFFFFF;
-    cursor: pointer;
     display: inline-block;
+    padding: 8px 17px;
+    margin: 0 20px 15px 0;
     font-size: 14px;
     line-height: 20px;
-    margin: 0 20px 15px 0;
-    padding: 8px 17px;
+    background-color: #0093DB;
+    color: #ffffff;
     text-align: center;
     vertical-align: middle;
+    cursor: pointer;
 }
+
 .os-btn:hover {
-    background-color: #009CE9;
-    color: #FFFFFF;
+    color: #ffffff;
+    background-color: #009ce9;
     text-decoration: none;
 }
