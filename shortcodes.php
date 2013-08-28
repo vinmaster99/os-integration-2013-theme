@@ -571,8 +571,16 @@ function blog_posts($attributes) {
 	global $wp_query, $paged, $post;
 	$page_title = get_the_title($post->ID);
 
+	$blog_cat = get_blog_categories();
+	$blog_catID = array();
+	// Turn the category names into ID's
+	foreach ($blog_cat as $key => $value) {
+		array_push($blog_catID, get_cat_ID($value));
+	}
+	$blog_catID = implode(',', $blog_catID);
+
 	$temp = $wp_query; $wp_query= null;
-	$wp_query = new WP_Query(); $wp_query->query('showposts=10' . '&paged='.$paged);
+	$wp_query = new WP_Query(); $wp_query->query('cat='.$blog_catID.'&posts_per_page=10' . '&paged='.$paged);
 	
 	$content = '';
 
@@ -640,8 +648,16 @@ function press_posts() {
 	global $wp_query, $paged, $post;
 	$page_title = get_the_title($post->ID);
 
+	$press_cat = get_press_categories();
+	$press_catID = array();
+	// Turn the category names into ID's
+	foreach ($press_cat as $key => $value) {
+		array_push($press_catID, get_cat_ID($value));
+	}
+	$press_catID = implode(',', $press_catID);
+
 	$temp = $wp_query; $wp_query= null;
-	$wp_query = new WP_Query(); $wp_query->query('showposts=10' . '&paged='.$paged);
+	$wp_query = new WP_Query(); $wp_query->query('cat='.$press_catID.'&posts_per_page=10' . '&paged='.$paged);
 	
 	$content = '';
 

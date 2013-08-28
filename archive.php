@@ -72,6 +72,20 @@ Template Name: Archive
 			<?php kriesi_pagination('', 2); ?>
 
 		</div>
+		<?php // Sidebar ?>
+		<div class="span4">
+			<h2 class="header">Quick Links</h2>
+			<ul>
+				<li><?php echo do_shortcode('[about_onescreen_sidebar]'); ?></li>
+				<li>Logo Usage &amp; Branding Guidelines</li>
+				<li>Contact Us</li>
+			</ul>
+			<h2 class="header">Newsletter</h2>
+			<p>Sign up to receive updates from OneScreen</p>
+			<?php echo do_shortcode('[newsletter]'); ?>
+			<h2 class="header">Join the Conversation</h2>
+			<?php echo do_shortcode('[twitter_feed]'); ?>
+		</div>
 	</div>
 </div>
 
