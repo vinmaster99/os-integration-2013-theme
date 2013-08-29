@@ -1,11 +1,6 @@
 <?php get_header(); ?>
-   <div id="content" class="container">
-     <h2 class="center">Error 404 - Not Found</h2>
-   </div>
-
-   <div id="sidebar" class="span4">
-   	<?php $page_id = 5409; ?>
-   	<?php $parent_page = get_page($page_id);//$parent_id); ?>
-   	<?php dynamic_sidebar('sidebar'); ?>
-   </div>
+	<div id="content" class="container">
+		<h1 class="center">Error 404 - Not Found</h1>
+		<p><a href="<? echo home_url(); ?>">Go to Home page</a></p>
+	</div>
 <?php get_footer(); ?>
