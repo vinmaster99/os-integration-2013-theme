@@ -735,7 +735,7 @@ function filter_by_categories() {
 
 	$page_id = get_cat_ID( 'Press' );
 
-	return wp_list_categories( array('feed_image' => get_bloginfo("template_directory")."/images/rss_small.png", 'feed' => 'XML Feed', 'exclude' => $page_id, 'echo' => 0, 'title_li' => ''));
+	return wp_list_categories( array('feed_image' => get_bloginfo("template_directory")."/images/rss_small.png", 'feed' => 'RSS Feed', 'exclude' => $page_id, 'echo' => 0, 'title_li' => ''));
 }
 add_shortcode('filter_by_categories', 'filter_by_categories');
 
