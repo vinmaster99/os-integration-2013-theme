@@ -43,6 +43,6 @@
 
 	<?php endif; // have_comments() ?>
 
-	<?php comment_form(array('comment_notes_after' => '')); ?>
+	<?php comment_form(array('comment_notes_after' => '', 'comment_field' => '<p class="comment-form-comment"><label for="comment">' . _x( 'Comment', 'noun' ) . '</label><textarea id="comment" name="comment" rows="8" aria-required="true" style="width: 100%;"></textarea></p>')); ?>
 
 </div><!-- #comments -->

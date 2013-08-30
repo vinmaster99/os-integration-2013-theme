@@ -775,7 +775,7 @@ add_shortcode('search_bar', 'search_bar');
 
 // Use Twitter's widget and embeded on the website
 function twitter_feed() {
-	$content = '<a class="twitter-timeline" href="https://twitter.com/onescreen" data-widget-id="372162085943123968">Tweets by @onescreen</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	$content = '<a class="twitter-timeline" href="https://twitter.com/onescreen" data-widget-id="373237180576985088">Tweets by @onescreen</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 ';
 	return $content;
 }
