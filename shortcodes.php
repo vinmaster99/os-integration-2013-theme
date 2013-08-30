@@ -612,7 +612,7 @@ function blog_posts($attributes) {
 		}
 		$content .= '</div>';
 		$content .= get_the_excerpt();
-		$content .= '<p><a href="'. get_permalink().'class="keep-reading">Keep Reading</a></p>';
+		$content .= '<p><a href="'. get_permalink().'"keep-reading">Keep Reading</a></p>';
 
 		// $content .= social_div_text();
 
@@ -683,7 +683,7 @@ function press_posts() {
 		$content .= '</small>';
 		$content .= '</div>';
 		$content .= get_the_excerpt();
-		$content .= '<p><a href="'. get_permalink().'class="keep-reading">Keep Reading</a></p>';
+		$content .= '<p><a href="'. get_permalink().'"keep-reading">Keep Reading</a></p>';
 
 		// $content .= social_div_text();
 
