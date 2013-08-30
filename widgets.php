@@ -451,6 +451,34 @@ class custom_text extends WP_Widget {
 	}
 }
 
+/* Dashboard widget - Search post by id */
+function register_search_post_by_id() {
+	wp_add_dashboard_widget(
+                 'search-post-by-id',         // Widget slug.
+                 'Search Post By Id',         // Title.
+                 'search_post_by_id_function' // Display function.
+        );
+}
+add_action( 'wp_dashboard_setup', 'register_search_post_by_id' );
+function search_post_by_id_function() {
+	echo "Input an ID of a post";
+	echo '<form id="searchpost" method="get" action="/wp-admin/post.php">
+		<div class="search-box" style="height:50px;">
+			<input type="search" name="post">
+			<input type="hidden" name="action" value="edit">
+			<input type="submit" name="" id="submit" class="button" value="Search by ID">
+		</div>
+		</form>';
+	echo "Input name of a post";
+	echo '<form id="posts-filter" action="/wp-admin/edit.php" method="get">
+        <div class="search-box" style="height:50px;">
+            <input type="search" name="s" value="">
+            <input type="submit" name="" id="submit" class="button" value="Search by name"></p>
+        </div>
+        </form>';
+}
+
+
 /* REGISTER WIDGETS */
 add_action('widgets_init', 'load_onescreen_widgets');
 function load_onescreen_widgets()
