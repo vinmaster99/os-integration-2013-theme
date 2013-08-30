@@ -350,6 +350,7 @@ function register_jquery(){
 	}
 }
 
+// get posta meta from blog page
 function get_blog_categories() {
 	// get the categories for blog posts
 	$page_id = get_page_by_title( 'Blog' );
@@ -358,6 +359,7 @@ function get_blog_categories() {
 	return $cat_array;
 }
 
+// get post meta from press page
 function get_press_categories() {
 	// get the categories for blog posts
 	$page_id = get_page_by_title( 'Press' );
@@ -366,6 +368,7 @@ function get_press_categories() {
 	return $cat_array;
 }
 
+// show the share with social network div
 function social_div() {
 	?>
 	<div class="social">
@@ -397,6 +400,7 @@ function social_div() {
 	<?php
 }
 
+// text version of social div
 function social_div_text() {
 	$content = '<ul class="social">';
 	$social_link = get_permalink();

@@ -489,6 +489,7 @@ function press_feature_posts($attributes) {
 }
 add_shortcode('press', 'press_feature_posts');
 
+// New post carousel for company.onescreen.com
 function post_carousel($attributes) {
 	wp_enqueue_script('new-slider', 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js', array(), '', false);
 	wp_enqueue_script('slider_shortcode_script', get_template_directory_uri().'/js/slider.js', array(), '', false);
@@ -530,6 +531,7 @@ function post_carousel($attributes) {
 		$post_link = get_permalink($post_id);
 		$post_title = get_the_title($post_id);
 
+		// fetch image if no image url were given
 		if ($post_images == 'none') {
 			$thumb = get_post_thumbnail_id( $post_id, 'full' );
 			if (isset($thumb) && $thumb != ''){
@@ -567,6 +569,7 @@ function post_carousel($attributes) {
 }
 add_shortcode('post_carousel', 'post_carousel');
 
+// Show blog stream
 function blog_posts($attributes) {
 	global $wp_query, $paged, $post;
 	$page_title = get_the_title($post->ID);
@@ -584,6 +587,7 @@ function blog_posts($attributes) {
 	
 	$content = '';
 
+	// for each post format it to display nicely on page
 	while ($wp_query->have_posts()) {
 		$wp_query->the_post();
 
@@ -619,6 +623,7 @@ function blog_posts($attributes) {
 		$content .= '<div class="osdivider"></div>';
 	}
 
+	// Show pagination
 	if ($paged > 1) {
 
 	$content .= '<nav id="nav-posts"><div class="prev">';
@@ -644,6 +649,7 @@ function blog_posts($attributes) {
 }
 add_shortcode('blog_posts', 'blog_posts');
 
+// show press stream
 function press_posts() {
 	global $wp_query, $paged, $post;
 	$page_title = get_the_title($post->ID);
@@ -661,6 +667,7 @@ function press_posts() {
 	
 	$content = '';
 
+	// for each post format it to display nicely on page
 	while ($wp_query->have_posts()) {
 		$wp_query->the_post();
 
@@ -690,6 +697,7 @@ function press_posts() {
 		$content .= '<div class="osdivider"></div>';
 	}
 
+	// show pagination
 	if ($paged > 1) {
 
 	$content .= '<nav id="nav-posts"><div class="prev">';
@@ -715,6 +723,7 @@ function press_posts() {
 }
 add_shortcode('press_posts', 'press_posts');
 
+// display the page title
 function page_title() {
 	global $post;
 	$page_title = get_the_title($post->ID);
@@ -722,7 +731,9 @@ function page_title() {
 }
 add_shortcode('page_title', 'page_title');
 
+// display list of categories to list in stream
 function filter_by_categories() {
+	// List all the categories and their id
 	// $categories = get_categories();
 	// $categories_array = array();
 	// foreach ($categories as $key => $value) {
@@ -739,16 +750,19 @@ function filter_by_categories() {
 }
 add_shortcode('filter_by_categories', 'filter_by_categories');
 
+// filter the stream to display posts by month
 function filter_by_months() {
 	return wp_get_archives( array('limit' => 6, 'echo' => 0));
 }
 add_shortcode('filter_by_months', 'filter_by_months');
 
+// get the list of categories for blog
 function blog_categories() {
 	return print_r($get_blog_categories(), true);
 }
 add_shortcode('blog_categories', 'blog_categories');
 
+// show the sidebar widget to sign up for newsletter
 function newsletter() {
 	$content = '<div class="row-fluid">
 	<form action="http://newsletter.onescreen.com/t/t/s/tyqh/" method="post">
@@ -765,6 +779,7 @@ function newsletter() {
 }
 add_shortcode('newsletter', 'newsletter');
 
+// show the sidebar widget to search post
 function search_bar() {
 	$content = '<form method="get" id="searchform" action="'.home_url().'/">
 	<input type="text" class="input" value="';
@@ -781,6 +796,7 @@ function twitter_feed() {
 }
 add_shortcode('twitter_feed', 'twitter_feed');
 
+// link to about onescreen page
 function about_onescreen_sidebar() {
 	return '<a href="http://company.onescreen.com/about">About OneScreen</a>';
 }
