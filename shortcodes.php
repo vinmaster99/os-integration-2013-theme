@@ -624,24 +624,6 @@ function blog_posts($attributes) {
 	}
 
 	// Show pagination
-	// $content .= '<ul class="pager">';
-	// if ($paged > 1) {
-
-	// $content .= '<li>';
-	// $content .= get_next_posts_link("&laquo; More Posts");
-	// $content .= '</li><li>';
-	// $content .= get_previous_posts_link("Newer Posts &raquo;");
-	// $content .= '</li>';
-
-	// } else {
-
-	// $content .= '<li>';
-	// $content .= get_next_posts_link("&laquo; More Posts");
-	// $content .= '</li>';
-
-	// }
-	// $content .= '</ul>';
-
 	$content .= kriesi_pagination_text('', 2);
 
 	// This is for the facebook counters
@@ -701,25 +683,7 @@ function press_posts() {
 		$content .= '<div class="osdivider"></div>';
 	}
 
-	// show pagination
-	// $content .= '<ul class="pager">';
-	// if ($paged > 1) {
-
-	// $content .= '<li>';
-	// $content .= get_next_posts_link("&laquo; More Press");
-	// $content .= '</li><li">';
-	// $content .= get_previous_posts_link("Newer Posts &raquo;");
-	// $content .= '</li>';
-
-	// } else {
-
-	// $content .= '<li>';
-	// $content .= get_next_posts_link("&laquo; More Press");
-	// $content .= '</li>';
-
-	// }
-	// $content .= '</ul>';
-
+	// Show pagination
 	$content .= kriesi_pagination_text('', 2);
 
 	// This is for the facebook counters
