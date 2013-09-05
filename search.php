@@ -6,7 +6,7 @@
 
 <div class="container">
 	<div class="row-fluid">
-		<div class="span7">
+		<div class="span8">
 			<?php
 			// This is the back button
 			$back_url = htmlspecialchars($_SERVER['HTTP_REFERER']);
@@ -55,7 +55,7 @@
 				</a>
 				<p class="post-list-content"><?php search_excerpt_highlight(); ?></p>
 
-				<a href="<?php the_permalink(); ?>" class="keep-reading">keep reading</a>
+				<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
 
 				<?php // Social div ?>
 				<?php social_div(); ?>

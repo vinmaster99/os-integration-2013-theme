@@ -22,12 +22,7 @@ Template Name: Archive
 <div class="container">
 	<div class="row-fluid">
 		<div class="span8">
-			<?php echo "<h1>{$page_title}</h1>"; ?>
-			<?php
-				// This is the back button
-				$back_url = htmlspecialchars($_SERVER['HTTP_REFERER']);
-				echo "<a href='{$back_url}' class='list' action='action' type='button'>Back to previous page</a>";
-			?>
+			<?php echo "<h1 class='header' style='text-transform: capitalize;'>{$page_title}</h1>"; ?>
 			<?php
 				if ( isset($query['category_name']) && $query['category_name'] != '' ){
 					$args = array( 'category_name' => $query['category_name'], 'paged' => max(1 , get_query_var('paged')), 'posts_per_page' => 10, 'orderby' => 'post_date', 'order' => 'desc', 'post_status' => 'publish' );
@@ -49,7 +44,7 @@ Template Name: Archive
 				}
 			?>
 			<div class="post-info">
-				<h2 class="post-list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+				<h2 class="post-list-title header"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				<div class="cat-date-author"><a href="<?php echo $category_link; ?>"><?php echo $temp->name; ?></a><span> &nbsp|&nbsp </span><span><?php echo mysql2date('F j, Y', $post->post_date); ?></span><!--<span> &nbsp|&nbsp </span><a href="<?php echo get_author_posts_url($post->post_author); ?>">By <?php echo $author_name; ?></a>--></div>
 			</div>
 			<a href="<?php the_permalink(); ?>" class="post-list-image">
@@ -57,10 +52,10 @@ Template Name: Archive
 			<?php if ($post->post_excerpt != '') $excerpt = $post->post_excerpt; else $excerpt = get_onescreen_excerpt($post->ID, 600); ?>
 			<p class="post-list-content"><?php echo $excerpt; ?></p>
 
-			<a href="<?php the_permalink(); ?>" class="keep-reading">keep reading</a>
+			<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
 
 			<?php // Social div ?>
-			<?php social_div(); ?>
+			<?php //social_div(); ?>
 
 			<?php // draw divider ?>
 			<div class="osdivider"></div>
@@ -74,12 +69,7 @@ Template Name: Archive
 		</div>
 		<?php // Sidebar ?>
 		<div class="span4">
-			<h2 class="header">Quick Links</h2>
-			<ul>
-				<li><?php echo do_shortcode('[about_onescreen_sidebar]'); ?></li>
-				<li>Logo Usage &amp; Branding Guidelines</li>
-				<li>Contact Us</li>
-			</ul>
+			<?php echo do_shortcode('[quicklinks_sidebar title="Quicklinks" page_id="19"]'); ?>
 			<h2 class="header">Newsletter</h2>
 			<p>Sign up to receive updates from OneScreen</p>
 			<?php echo do_shortcode('[newsletter]'); ?>

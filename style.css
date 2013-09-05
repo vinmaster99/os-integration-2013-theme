@@ -7,6 +7,15 @@ Description: OneScreen.com theme integration with MediaGraph. Created August
 Version: 1.0
 */
 
+.read-more {
+    padding: 10px 0px;
+}
+
+.comment-reply-title, #comments-title {
+    font-size: 100%;
+    line-height: 150%;
+}
+
 /* Previous and Next link for blog page */
 .prev {
 	float: left;
@@ -16,6 +25,11 @@ Version: 1.0
 	float: right;
 	text-align: right;
 	width: 50%;
+}
+
+/* Footer CSS */
+#footer-content {
+    clear: both;
 }
 
 /* Social div */
@@ -72,19 +86,6 @@ Version: 1.0
     width: 80px !important;
 }
 
-/* Footer CSS */
-#footer-content {
-	clear: both;
-}
-
-body {
-    font-family: 'Droid Sans', sans-serif !important;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Droid Sans', sans-serif !important;
-}
-
 /* Responsive CSS */
 @media screen and (max-width: 640px) {
     .masthead {
@@ -139,7 +140,7 @@ h2.header, h3.header, h4.header, h5.header {
     line-height: 150%;
 }
 
-p, li, a {
+p, li {
     font-size: 14px;
     line-height: 22px;
 }

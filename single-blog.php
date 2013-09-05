@@ -31,7 +31,7 @@
 			<?php $tags = wp_get_post_tags($post->ID); ?>
 			<?php if (count($tags) > 0) : ?>
 				<div class="post-tags">
-					<ul class="ul-tags" style="display: inline;">
+					<ul class="inline ul-tags" style="display: inline;">
 						<li>Tags:</li>
 						<?php foreach ($tags as $tag) : ?>
 							<li><a href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo $tag->name; ?></a></li>

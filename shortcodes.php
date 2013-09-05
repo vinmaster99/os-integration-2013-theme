@@ -140,7 +140,7 @@ function oslist($attributes){
 	$img = explode(',', $img);
 
 	$content = '';
-	$content .= '<ul class="oslist-secondrow">';
+	$content .= '<ul class="unstyled oslist-secondrow">';
 
 	$count = 0;
 	foreach ($posts as $post) {
@@ -554,7 +554,7 @@ function post_carousel($attributes) {
 		}
 		$content .= '<a href="'.$post_link.'"><img alt="" src="'.$featured_image.'"></a>';
 		$content .= '<div class="carousel-caption">';
-        $content .= '<h1 class="header" style="color: white;">'.$post_title.'</h1>';
+        $content .= '<a style="color: white;" href="'.$post_link.'">'.$post_title.'</a>';
         $content .= '<p>'.$excerpt.'</p>';
       	$content .= '</div>';
       	$content .= '</div>';
@@ -616,7 +616,7 @@ function blog_posts($attributes) {
 		}
 		$content .= '</div>';
 		$content .= get_the_excerpt();
-		$content .= '<p><a href="'. get_permalink().'"keep-reading">Keep Reading</a></p>';
+		$content .= '<p><a href="'. get_permalink().'" class="read-more">Read More</a></p>';
 
 		// $content .= social_div_text();
 
@@ -624,21 +624,25 @@ function blog_posts($attributes) {
 	}
 
 	// Show pagination
-	if ($paged > 1) {
+	// $content .= '<ul class="pager">';
+	// if ($paged > 1) {
 
-	$content .= '<nav id="nav-posts"><div class="prev">';
-	$content .= get_next_posts_link("&laquo; More Posts");
-	$content .= '</div><div class="next">';
-	$content .= get_previous_posts_link("Newer Posts &raquo;");
-	$content .= '</div></nav>';
+	// $content .= '<li>';
+	// $content .= get_next_posts_link("&laquo; More Posts");
+	// $content .= '</li><li>';
+	// $content .= get_previous_posts_link("Newer Posts &raquo;");
+	// $content .= '</li>';
 
-	} else {
+	// } else {
 
-	$content .= '<nav id="nav-posts"><div class="prev">';
-	$content .= get_next_posts_link("&laquo; More Posts");
-	$content .= '</div></nav>';
+	// $content .= '<li>';
+	// $content .= get_next_posts_link("&laquo; More Posts");
+	// $content .= '</li>';
 
-	}
+	// }
+	// $content .= '</ul>';
+
+	$content .= kriesi_pagination_text('', 2);
 
 	// This is for the facebook counters
 	wp_enqueue_script('social_sharing', get_template_directory_uri().'/js/social.js', array('jquery'));
@@ -690,7 +694,7 @@ function press_posts() {
 		$content .= '</small>';
 		$content .= '</div>';
 		$content .= get_the_excerpt();
-		$content .= '<p><a href="'. get_permalink().'"keep-reading">Keep Reading</a></p>';
+		$content .= '<p><a href="'. get_permalink().'" class="read-more">Read More</a></p>';
 
 		// $content .= social_div_text();
 
@@ -698,21 +702,25 @@ function press_posts() {
 	}
 
 	// show pagination
-	if ($paged > 1) {
+	// $content .= '<ul class="pager">';
+	// if ($paged > 1) {
 
-	$content .= '<nav id="nav-posts"><div class="prev">';
-	$content .= get_next_posts_link("&laquo; More Press");
-	$content .= '</div><div class="next">';
-	$content .= get_previous_posts_link("Newer Posts &raquo;");
-	$content .= '</div></nav>';
+	// $content .= '<li>';
+	// $content .= get_next_posts_link("&laquo; More Press");
+	// $content .= '</li><li">';
+	// $content .= get_previous_posts_link("Newer Posts &raquo;");
+	// $content .= '</li>';
 
-	} else {
+	// } else {
 
-	$content .= '<nav id="nav-posts"><div class="prev">';
-	$content .= get_next_posts_link("&laquo; More Press");
-	$content .= '</div></nav>';
+	// $content .= '<li>';
+	// $content .= get_next_posts_link("&laquo; More Press");
+	// $content .= '</li>';
 
-	}
+	// }
+	// $content .= '</ul>';
+
+	$content .= kriesi_pagination_text('', 2);
 
 	// This is for the facebook counters
 	wp_enqueue_script('social_sharing', get_template_directory_uri().'/js/social.js', array('jquery'));
@@ -801,5 +809,25 @@ function about_onescreen_sidebar() {
 	return '<a href="http://company.onescreen.com/about">About OneScreen</a>';
 }
 add_shortcode('about_onescreen_sidebar', 'about_onescreen_sidebar');
+
+function quicklinks_sidebar($attributes) {
+	extract(shortcode_atts( 
+		array('title' => 'Quicklinks', 
+			'page_id' => ''), $attributes));
+
+	$content = '<h2 class="header">'.$title.'</h2>
+	<ul>';
+	if ($page_id !== '') {
+		$pages = explode(',', $page_id);
+		foreach ($pages as $key => $value) {
+			$title = get_the_title($value);
+			$link = get_page_link($value);
+			$content .= '<li><a href="'.$link.'">'.$title.'</a></li>';
+		}
+	}
+	$content .= '</ul>';
+	return $content;
+}
+add_shortcode('quicklinks_sidebar', 'quicklinks_sidebar');
 
 ?>
