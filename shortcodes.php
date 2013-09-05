@@ -167,7 +167,7 @@ function oslist($attributes){
 		if ($post->post_excerpt != '') $description = $post->post_excerpt;
 		else $description = get_onescreen_excerpt($post->ID, 200);
 
-		$content .= '<li class="oslist-section-li">'.$image.'<div><a href="'.$url.'">'.$title.'</a><p>'.$description.'</p></div></li>';
+		$content .= '<li class="oslist-section-li">'.$image.'<div><a href="'.$url.'">'.$title.'</a><p><small>'.$description.'</small></p></div></li>';
 		$count++;
 	}
 

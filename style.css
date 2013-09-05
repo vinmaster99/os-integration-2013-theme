@@ -77,10 +77,6 @@ Version: 1.0
 	clear: both;
 }
 
-ul, li {
-    list-style: none;
-}
-
 body {
     font-family: 'Droid Sans', sans-serif !important;
 }
@@ -101,10 +97,14 @@ h1, h2, h3, h4, h5, h6 {
         display: block !important;
     }
 }
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 960px !important;
+    }
+}
 
 /* Start of merge.css */
-/* Custom Styles */
-
+/* Header & Masthead */
 .masthead {
     width: 100%;
     margin-top: 15px;
@@ -122,9 +122,16 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
+#header {
+    height: 80px;
+    margin-top:15px;
+}
+
+/* Typography */
 h1.header {
-    font-size: 200%;
+    font-size: 175%;
     line-height: 150%;
+    
 }
 
 h2.header, h3.header, h4.header, h5.header {
@@ -141,18 +148,40 @@ small {
     line-height:18px;
 }
 
+blockquote p.quote {
+    font-size:13px;
+    line-height:18px;
+    font-weight:normal;
+}
+
+blockquote small {
+    font-size:11px;
+    line-height:16px;
+    font-weight: normal;
+}
+
+.carousel-caption > h1.header {
+    font-size:100%;
+}
+
+.carousel-caption > p {
+    font-size:85%;
+}
+
+/* Images */
 .thumbnail img {
     margin-bottom:10px;
 }
 
+/* Misc */
 .osdivider {
     padding: 30px 0;
     margin: 0px auto;
     width: 100%;
     height: 17px;
-    background-image: url("http://www.onescreen.com/wp-content/themes/NewOneScreen/images/horizontal_divider_logo.png"), url("http://www.onescreen.com/files/divider_line.gif");
-    background-position: center center, left center;
-    background-repeat: no-repeat, repeat-x;
+    background-image: url("http://www.onescreen.com/files/divider_line.gif");
+    background-position: left center;
+    background-repeat: repeat-x;
 }
 
 .tabs-left > .nav-tabs {
@@ -162,12 +191,50 @@ small {
     width:225px;
 }
 
-
-#header {
-    height: 80px;
-    margin-top:15px;
+.os-btn {
+    display: inline-block;
+    padding: 8px 17px;
+    margin: 0 20px 15px 0;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: #0093DB;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
 }
 
+.os-btn:hover {
+    color: #ffffff;
+    background-color: #009ce9;
+    text-decoration: none;
+}
+
+#subheader .nav > li > a {
+    color: #0088cc;
+}
+
+#subheader .nav > li.active > a,
+#subheader .nav > li.active > a:hover,
+#subheader .nav > li.active > a:focus {
+    color: #777777;
+    background-color: transparent;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+#subheader .nav > li > a:hover,
+#subheader .nav > li > a:focus {
+    text-decoration: none;
+    background-color: transparent;
+    color: #005580;
+}
+
+#subheader .nav > li > a {
+    padding: 10px 15px 10px 0px;
+}
+
+/* Footer */
 footer {
     background: #e6e6e6;
     width: 100%;
@@ -189,29 +256,4 @@ footer {
     font-size: 12px;
     line-height:14px;
     color:#808080;
-}
-
-blockquote p {
-    font-size:13px;
-    line-height:18px;
-    font-weight:normal;
-}
-
-.os-btn {
-    display: inline-block;
-    padding: 8px 17px;
-    margin: 0 20px 15px 0;
-    font-size: 14px;
-    line-height: 20px;
-    background-color: #0093DB;
-    color: #ffffff;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-}
-
-.os-btn:hover {
-    color: #ffffff;
-    background-color: #009ce9;
-    text-decoration: none;
 }

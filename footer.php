@@ -1,6 +1,6 @@
 		<footer>
 			<div class="container">
-				<div class="footer-content">
+				<div id="footer-content">
 					<div class="row-fluid">
 						<?php dynamic_sidebar('footer-widgets'); ?>
 					</div>
