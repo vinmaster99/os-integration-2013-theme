@@ -318,7 +318,6 @@ add_shortcode('os_tablelist', 'os_tablelist');
 /* New Carousel/Slider Shortcode */
 function new_slider($attributes){
 	// wp_enqueue_style('new-slider-style', get_template_directory_uri().'/slider.css');
-	wp_enqueue_script('new-slider', 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js', array(), '', false);
 	wp_enqueue_script('slider_shortcode_script', get_template_directory_uri().'/js/slider.js', array(), '', false);
 
 	$attributes = shortcode_atts(
@@ -491,7 +490,6 @@ add_shortcode('press', 'press_feature_posts');
 
 // New post carousel for company.onescreen.com
 function post_carousel($attributes) {
-	wp_enqueue_script('new-slider', 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js', array(), '', false);
 	wp_enqueue_script('slider_shortcode_script', get_template_directory_uri().'/js/slider.js', array(), '', false);
 
 	$attributes = shortcode_atts(
