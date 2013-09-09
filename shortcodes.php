@@ -607,11 +607,6 @@ function blog_posts($attributes) {
 		$content .= '</a></small><small> &nbsp;|&nbsp; </small><small>';
 		$content .= mysql2date('F j, Y', $post->post_date);
 		$content .= '</small>';
-		if (stripos(strtolower($page_title), 'blog') !== false) {
-			$content .= '<small>&nbsp;|&nbsp; </small><small><a href="';
-			$content .= get_author_posts_url($post->post_author);
-			$content .= '">By '.$author_name.'</a></small>';
-		}
 		$content .= '</div>';
 		$content .= get_the_excerpt();
 		$content .= '<p><a href="'. get_permalink().'" class="read-more">Read More</a></p>';
@@ -715,8 +710,8 @@ function filter_by_categories() {
 	// }
 
 	$page_id = get_cat_ID( 'Press' );
-
-	return wp_list_categories( array('feed_image' => get_bloginfo("template_directory")."/images/rss_small.png", 'feed' => 'RSS Feed', 'exclude' => $page_id, 'echo' => 0, 'title_li' => ''));
+	$blog_id = get_cat_ID( 'Blog' );
+	return wp_list_categories( array('feed_image' => get_bloginfo("template_directory")."/images/rss_small.png", 'feed' => 'RSS Feed', 'exclude' => $page_id, 'echo' => 0, 'title_li' => '', 'child_of' => $blog_id));
 }
 add_shortcode('filter_by_categories', 'filter_by_categories');
 

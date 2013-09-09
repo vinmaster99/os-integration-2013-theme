@@ -3,6 +3,7 @@
 	<head>
 		<title><?php wp_title('', true, 'right'); ?></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="http://www.onescreen.com/wp-content/themes/NewOneScreen/images/favicon.ico">
 		<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 		<?php register_jquery(); ?>
