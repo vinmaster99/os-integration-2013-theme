@@ -117,7 +117,8 @@ function oslist($attributes){
 			'category' => '',
 			'count' => '4',
 			'thumbnails' => 'false',
-			'img' => ''
+			'img' => '',
+			'show_excerpt' => 'yes'
 		), $attributes);
 	extract($attributes);
 
@@ -167,7 +168,11 @@ function oslist($attributes){
 		if ($post->post_excerpt != '') $description = $post->post_excerpt;
 		else $description = get_onescreen_excerpt($post->ID, 200);
 
-		$content .= '<li class="oslist-section-li">'.$image.'<div><a href="'.$url.'">'.$title.'</a><p><small>'.$description.'</small></p></div></li>';
+		if ($show_excerpt === 'yes') {
+			$content .= '<li class="oslist-section-li">'.$image.'<div><a href="'.$url.'">'.$title.'</a><p><small>'.$description.'</small></p></div></li>';
+		} else {
+			$content .= '<li class="oslist-section-li">'.$image.'<div><a href="'.$url.'">'.$title.'</a></div></li>';
+		}
 		$count++;
 	}
 
