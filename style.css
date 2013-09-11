@@ -37,36 +37,34 @@ Version: 1.0
 .clear {
     clear: both;
 }
+footer {
+    background-color: #f2f2f2;
+    margin-top: 50px;
+}
 .footer{
     position: fixed;
     bottom: 0px;
     height: 35px;
     width: 100%;
-    background-color: #F7F7F7;
-    z-index: 999999;
     -webkit-box-shadow: -1px 0 3px rgba(0, 0, 0, 0.30);
     -moz-box-shadow: -1px 0 3px rgba(0, 0, 0, 0.30);
     box-shadow: -1px 0 3px rgba(0, 0, 0, 0.30);
-    padding:10px 25px;font-size:10px;
     color: #333333 !important;
+    padding-top: 15px;
+    padding-bottom: 35px;
+}
+.copyright {
+    padding-bottom: 20px;
 }
 .footer-login-page {
-    padding:  10px 0;
     position: relative;
-    background: #FFFFFF;
     box-shadow: none;
-}
-.footer-login-page-wrap {
-    width: 1000px;
-    margin: 15px auto 50px auto;
 }
 .footer-nav {
     list-style: none;
-    margin: 5px 0 0 0;
-    padding: 5px 0;
-    width: 800px;
     font-size: 11px;
-    overflow: hidden;
+    padding-top: 10px;
+    margin-left: 0px;
 }
 .footer-nav li {
     float: left;
