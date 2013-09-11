@@ -27,9 +27,60 @@ Version: 1.0
 	width: 50%;
 }
 
+/* Header CSS */
+#header {
+    margin-top:15px;
+    margin-bottom: 15px;
+}
+
 /* Footer CSS */
-#footer-content {
+.clear {
     clear: both;
+}
+.footer{
+    position: fixed;
+    bottom: 0px;
+    height: 35px;
+    width: 100%;
+    background-color: #F7F7F7;
+    z-index: 999999;
+    -webkit-box-shadow: -1px 0 3px rgba(0, 0, 0, 0.30);
+    -moz-box-shadow: -1px 0 3px rgba(0, 0, 0, 0.30);
+    box-shadow: -1px 0 3px rgba(0, 0, 0, 0.30);
+    padding:10px 25px;font-size:10px;
+    color: #333333 !important;
+}
+.footer-login-page {
+    padding:  10px 0;
+    position: relative;
+    background: #FFFFFF;
+    box-shadow: none;
+}
+.footer-login-page-wrap {
+    width: 1000px;
+    margin: 15px auto 50px auto;
+}
+.footer-nav {
+    list-style: none;
+    margin: 5px 0 0 0;
+    padding: 5px 0;
+    width: 800px;
+    font-size: 11px;
+    overflow: hidden;
+}
+.footer-nav li {
+    float: left;
+    font-size: 11px;
+    margin-right: 23px;
+    color: #333333;
+}
+.footer-nav a {
+    color: #222222;
+    text-decoration: none;
+}
+.footer-nav a:hover {
+    text-decoration: underline;
+    color: #0093DB;
 }
 
 /* Social div */
@@ -106,6 +157,9 @@ Version: 1.0
 
 /* Start of merge.css */
 /* Header & Masthead */
+/* Custom Styles */
+
+/* Header & Masthead */
 .masthead {
     width: 100%;
     margin-top: 15px;
@@ -124,8 +178,26 @@ Version: 1.0
 }
 
 #header {
-    height: 80px;
     margin-top:15px;
+    margin-bottom: 15px;
+}
+
+.os-page-topper {
+    height: 3px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1033;
+    background: #e43436; /* Old browsers */
+    background: -moz-linear-gradient(left,  #e43436 0%, #a02a5c 20%, #5d1e86 40%, #2351bf 60%, #0093db 80%, #24b5ee 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#e43436), color-stop(20%,#a02a5c), color-stop(40%,#5d1e86), color-stop(60%,#2351bf), color-stop(80%,#0093db), color-stop(100%,#24b5ee)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #e43436 0%,#a02a5c 20%,#5d1e86 40%,#2351bf 60%,#0093db 80%,#24b5ee 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #e43436 0%,#a02a5c 20%,#5d1e86 40%,#2351bf 60%,#0093db 80%,#24b5ee 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #e43436 0%,#a02a5c 20%,#5d1e86 40%,#2351bf 60%,#0093db 80%,#24b5ee 100%); /* IE10+ */
+    background: linear-gradient(to right,  #e43436 0%,#a02a5c 20%,#5d1e86 40%,#2351bf 60%,#0093db 80%,#24b5ee 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e43436', endColorstr='#24b5ee',GradientType=1 ); /* IE6-9 */
 }
 
 /* Typography */
@@ -149,6 +221,7 @@ small {
     line-height:18px;
 }
 
+
 blockquote p.quote {
     font-size:13px;
     line-height:18px;
@@ -167,6 +240,11 @@ blockquote small {
 
 .carousel-caption > p {
     font-size:85%;
+}
+
+a[href$='.pdf'] { 
+    padding: 5px 20px 5px 0;
+    background: transparent url('http://company.onescreen.com/files/2013/09/icon_pdf.gif') no-repeat center right;
 }
 
 /* Images */
@@ -235,26 +313,8 @@ blockquote small {
     padding: 10px 15px 10px 0px;
 }
 
-/* Footer */
-footer {
-    background: #e6e6e6;
-    width: 100%;
-    float: left;
-    margin-top:80px;
-}
-
-#footer-content {
-    margin-top:40px;
-    color:#808080;
-}
-
-#footer-content p {
-    font-size: 13px;
-    line-height:18px;
-
-}
-#footer-content a{
-    font-size: 12px;
-    line-height:14px;
-    color:#808080;
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 960px !important;
+    }
 }
