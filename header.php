@@ -21,7 +21,7 @@
 		<div class="os-page-topper"></div>
 		<div id="header" class="container">
 			<div class="navbar">
-				<a href="<?php echo home_url(); ?>" class="brand"><img alt="OneScreen Logo" src="http://www.onescreen.com/wp-content/themes/NewOneScreen/images/onescreen_logo.png"></a>
+				<a href="<?php echo home_url(); ?>" class="brand"><img alt="OneScreen Logo" src="http://www.onescreen.com/assets/onescreen_logo.png"></a>
 				<?php wp_nav_menu( array('menu' => 'Header Navigation', 'container' => 'false', 'menu_class' => 'nav pull-right')); ?>
 			</div>
 		</div>

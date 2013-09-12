@@ -109,7 +109,6 @@ add_filter('widget_text', 'do_shortcode');
 // Shortcode for second row in homewidgets div
 function oslist($attributes){
 	// Register shortcodes stylesheet (if not enqueued yet)
-	wp_enqueue_style('theme_shortcodes', get_template_directory_uri().'/shortcodes.css');
 
 	$attributes = shortcode_atts(
 		array(
@@ -163,7 +162,7 @@ function oslist($attributes){
 				else $image = '';
 			}
 		}
-		$url = $post->guid;
+		$url = get_permalink($post->ID);
 		$title = $post->post_title;
 		if ($post->post_excerpt != '') $description = $post->post_excerpt;
 		else $description = get_onescreen_excerpt($post->ID, 200);

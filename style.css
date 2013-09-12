@@ -16,6 +16,10 @@ Version: 1.0
     line-height: 150%;
 }
 
+.sidebar ul {
+    list-style: none !important;
+}
+
 /* Previous and Next link for blog page */
 .prev {
 	float: left;
