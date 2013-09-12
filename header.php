@@ -17,7 +17,7 @@
 		<div class="os-page-topper"></div>
 		<div id="header" class="container">
 			<div class="navbar">
-				<a href="<?php echo home_url(); ?>" class="brand"><img alt="OneScreen Logo" src="http://www.onescreen.com/assets/onescreen_logo.png"></a>
+				<a href="http://www.onescreen.com/" class="brand"><img alt="OneScreen Logo" src="http://www.onescreen.com/assets/onescreen_logo.png"></a>
 				<?php wp_nav_menu( array('menu' => 'Header Navigation', 'container' => 'false', 'menu_class' => 'nav pull-right')); ?>
 				<div id="menu-header-navigation-dropdown">
 					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
