@@ -45,7 +45,7 @@ Template Name: Archive
 			?>
 			<div class="post-info">
 				<h2 class="post-list-title header"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-				<div class="cat-date-author"><a href="<?php echo $category_link; ?>"><?php echo $temp->name; ?></a><span> &nbsp|&nbsp </span><span><?php echo mysql2date('F j, Y', $post->post_date); ?></span><!--<span> &nbsp|&nbsp </span><a href="<?php echo get_author_posts_url($post->post_author); ?>">By <?php echo $author_name; ?></a>--></div>
+				<div class="cat-date-author"><small><a href="<?php echo $category_link; ?>"><?php echo $temp->name; ?></small></a><small><span> &nbsp|&nbsp </span></small><small><span><?php echo mysql2date('F j, Y', $post->post_date); ?></span></small><!--<span> &nbsp|&nbsp </span><a href="<?php echo get_author_posts_url($post->post_author); ?>">By <?php echo $author_name; ?></a>--></div>
 			</div>
 			<a href="<?php the_permalink(); ?>" class="post-list-image">
 			</a>
@@ -71,7 +71,7 @@ Template Name: Archive
 
 		<div class="span4">
 			<div class="sidebar">
-				<h2>Categories</h2>
+				<h2 class="header">Categories</h2>
 				<?php echo do_shortcode('[filter_by_categories]'); ?>
 				<?php echo do_shortcode('[search_bar]'); ?>
 				<h2 class="header">Month</h2>
