@@ -411,7 +411,7 @@ function social_div() {
 		<?php $social_link = get_permalink(); ?>
 		<?php // Facebook ?>
 		<div class='facebook-share' style="clear:both;">
-		<div style="margin-top: -2px; float:left;"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $social_link; ?>" target="_blank"><img src="http://www.onescreen.com/files/fb_share_button.png"></a></div>
+		<div style="margin-top: -2px; float:left;"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $social_link; ?>" target="_blank"><img src="http://company.onescreen.com/files/fb_share_button.png"></a></div>
 		<div class="arrow_box pluginCountButton">0</div>
 		</div>
 		<?php // Twitter ?>

@@ -29,7 +29,7 @@
 				?>
 				<?php global $wp_query; ?>
 				<?php $total_results = $wp_query->found_posts; ?>
-				<h1 id="searchpage-title"><?php printf( __( '('.$total_results.')' . ' Search Results for: %s', 'framework' ), '<br /><span style="font-style:italic;">"' . get_search_query() . '"</span>' ); ?></h1>
+				<h1 class="header" id="searchpage-title"><?php printf( __( '('.$total_results.')' . ' Search Results for: %s', 'framework' ), '<br /><span style="font-style:italic;">"' . get_search_query() . '"</span>' ); ?></h1>
 
 				<?php $posts = $search->posts; ?>
 
@@ -43,7 +43,7 @@
 				<?php $author_id = $post->post_author; $user = get_userdata($author_id); $author_name = $user->first_name . ' ' . $user->last_name; ?>
 
 				<div class="post-info">
-					<h2 class="post-list-title"><a href="<?php the_permalink(); ?>"><?php search_title_highlight(); ?></a></h2>
+					<h2 class="header post-list-title"><a href="<?php the_permalink(); ?>"><?php search_title_highlight(); ?></a></h2>
 					<div class="cat-date-author">
 						<?php if (isset($category_link) && $category_link != '') : ?>
 						<a href="<?php echo $category_link; ?>"><?php echo $temp->name; ?></a><span> &nbsp|&nbsp </span>
@@ -72,6 +72,21 @@
 
 	</div>
 	<?php wp_reset_query(); global $post; ?>
+
+	<?php // Sidebar ?>
+	<div class="span4">
+		<div class="sidebar">
+			<h2 class="header">Categories</h2>
+			<?php echo do_shortcode('[filter_by_categories]'); ?>
+			<h2 class="header">Search</h2>
+			<?php echo do_shortcode('[search_bar]'); ?>
+			<h2 class="header">Month</h2>
+			<?php echo do_shortcode('[filter_by_months]'); ?>
+			<h2 class="header">Newsletter</h2>
+			<p>Sign up to receive updates from OneScreen</p>
+			<?php echo do_shortcode('[newsletter]'); ?>
+		</div>
+	</div>
 </div>
 </div>
 

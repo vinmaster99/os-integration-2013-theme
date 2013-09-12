@@ -23,6 +23,10 @@ Version: 1.0
     list-style: none !important;
 }
 
+#searchform {
+    margin-top: 20px;
+}
+
 /* Previous and Next link for blog page */
 .prev {
 	float: left;
@@ -91,6 +95,7 @@ footer {
 /* Social div */
 .social {
     margin-left: 0px;
+    padding-top: 10px;
 }
 .arrow_box {
     position: relative;
