@@ -451,6 +451,268 @@ class custom_text extends WP_Widget {
 	}
 }
 
+/* Custom text widget without the footer-widget div class */
+class quick_links extends WP_Widget {
+	// Constructor
+	public function quick_links() {
+		// Process widget
+		$widget_ops = array( 'classname' => 'Quick Links', 'description' => 'Display links for the sidebar' );
+
+		$control_ops = array( 'width' => 540, 'id_base' => 'quick_links' );
+
+		$this->WP_Widget('quick_links', 'Quick Links', $widget_ops, $control_ops);
+	}
+	public function widget($args, $instance) {
+		// Outputs the content of the widget
+		extract($args);
+
+		$text1 = $instance['text1'];
+		$link1 = $instance['link1'];
+		$checkbox1 = $instance['checkbox1'];
+
+		$text2 = $instance['text2'];
+		$link2 = $instance['link2'];
+		$checkbox2 = $instance['checkbox2'];
+
+		$text3 = $instance['text3'];
+		$link3 = $instance['link3'];
+		$checkbox3 = $instance['checkbox3'];
+
+		$text4 = $instance['text4'];
+		$link4 = $instance['link4'];
+		$checkbox4 = $instance['checkbox4'];
+
+		$text5 = $instance['text5'];
+		$link5 = $instance['link5'];
+		$checkbox5 = $instance['checkbox5'];
+
+		echo '<h2 class="header">Quick Links</h2>';
+		echo '<ul>';
+		if (isset($checkbox1) && $checkbox1 == '1') {
+			echo "<li><a href='{$link1}''>$text1</a></li>";
+		}
+
+		if (isset($checkbox2) && $checkbox2 == '1') {
+			echo "<li><a href='{$link2}''>$text2</a></li>";
+		}
+
+		if (isset($checkbox3) && $checkbox3 == '1') {
+			echo "<li><a href='{$link3}''>$text3</a></li>";
+		}
+
+		if (isset($checkbox4) && $checkbox4 == '1') {
+			echo "<li><a href='{$link4}''>$text4</a></li>";
+		}
+
+		if (isset($checkbox5) && $checkbox5 == '1') {
+			echo "<li><a href='{$link5}''>$text5</a></li>";
+		}
+		echo '</ul>';
+	}
+	public function form($instance) {
+		// Check values
+		if( $instance) {
+		     $text1 = $instance['text1'];
+		     $link1 = $instance['link1'];
+		     $checkbox1 = $instance['checkbox1'];
+		     $text2 = $instance['text2'];
+		     $link2 = $instance['link2'];
+		     $checkbox2 = $instance['checkbox2'];
+		     $text3 = $instance['text3'];
+		     $link3 = $instance['link3'];
+		     $checkbox3 = $instance['checkbox3'];
+		     $text4 = $instance['text4'];
+		     $link4 = $instance['link4'];
+		     $checkbox4 = $instance['checkbox4'];
+		     $text5 = $instance['text5'];
+		     $link5 = $instance['link5'];
+		     $checkbox5 = $instance['checkbox5'];
+		} else {
+		     $text1 = '';
+		     $link1 = '';
+		     $checkbox1 = '';
+		     $text2 = '';
+		     $link2 = '';
+		     $checkbox2 = ''; // Added
+		     $text3 = '';
+		     $link3 = '';
+		     $checkbox3 = ''; // Added
+		     $text4 = '';
+		     $link4 = '';
+		     $checkbox4 = ''; // Added
+		     $text5 = '';
+		     $link5 = '';
+		     $checkbox5 = ''; // Added
+		}
+		?>
+		<label>Put link text and link url. URL Format: (http://www.onescreen.com)</label>
+		<p>
+		<label for="<?php echo $this->get_field_id('text1'); ?>"><?php _e('Link text', 'wp_widget_plugin'); ?></label>
+		<input id="<?php echo $this->get_field_id('text1'); ?>" name="<?php echo $this->get_field_name('text1'); ?>" type="text" value="<?php echo $text1; ?>" />
+		<label for="<?php echo $this->get_field_id('link1'); ?>"><?php _e('Link URL:', 'wp_widget_plugin'); ?></label>
+		<input id="<?php echo $this->get_field_id('link1'); ?>" name="<?php echo $this->get_field_name('link1'); ?>" type="text" value="<?php echo $link1; ?>" />
+		<input id="<?php echo $this->get_field_id('checkbox1'); ?>" name="<?php echo $this->get_field_name('checkbox1'); ?>" type="checkbox" value="1" <?php checked( '1', $checkbox1 ); ?> />
+		<label for="<?php echo $this->get_field_id('checkbox1'); ?>"><?php _e('Show?', 'wp_widget_plugin'); ?></label>
+		</p>
+
+		<p>
+		<label for="<?php echo $this->get_field_id('text2'); ?>"><?php _e('Link text', 'wp_widget_plugin'); ?></label>
+		<input id="<?php echo $this->get_field_id('text2'); ?>" name="<?php echo $this->get_field_name('text2'); ?>" type="text" value="<?php echo $text2; ?>" />
+		<label for="<?php echo $this->get_field_id('link2'); ?>"><?php _e('Link URL:', 'wp_widget_plugin'); ?></label>
+		<input id="<?php echo $this->get_field_id('link2'); ?>" name="<?php echo $this->get_field_name('link2'); ?>" type="text" value="<?php echo $link2; ?>" />
+		<input id="<?php echo $this->get_field_id('checkbox2'); ?>" name="<?php echo $this->get_field_name('checkbox2'); ?>" type="checkbox" value="1" <?php checked( '1', $checkbox2 ); ?> />
+		<label for="<?php echo $this->get_field_id('checkbox2'); ?>"><?php _e('Show?', 'wp_widget_plugin'); ?></label>
+		</p>
+
+		<p>
+		<label for="<?php echo $this->get_field_id('text3'); ?>"><?php _e('Link text', 'wp_widget_plugin'); ?></label>
+		<input id="<?php echo $this->get_field_id('text3'); ?>" name="<?php echo $this->get_field_name('text3'); ?>" type="text" value="<?php echo $text3; ?>" />
+		<label for="<?php echo $this->get_field_id('link3'); ?>"><?php _e('Link URL:', 'wp_widget_plugin'); ?></label>
+		<input id="<?php echo $this->get_field_id('link3'); ?>" name="<?php echo $this->get_field_name('link3'); ?>" type="text" value="<?php echo $link3; ?>" />
+		<input id="<?php echo $this->get_field_id('checkbox3'); ?>" name="<?php echo $this->get_field_name('checkbox3'); ?>" type="checkbox" value="1" <?php checked( '1', $checkbox3 ); ?> />
+		<label for="<?php echo $this->get_field_id('checkbox3'); ?>"><?php _e('Show?', 'wp_widget_plugin'); ?></label>
+		</p>
+
+		<p>
+		<label for="<?php echo $this->get_field_id('text4'); ?>"><?php _e('Link text', 'wp_widget_plugin'); ?></label>
+		<input id="<?php echo $this->get_field_id('text4'); ?>" name="<?php echo $this->get_field_name('text4'); ?>" type="text" value="<?php echo $text4; ?>" />
+		<label for="<?php echo $this->get_field_id('link4'); ?>"><?php _e('Link URL:', 'wp_widget_plugin'); ?></label>
+		<input id="<?php echo $this->get_field_id('link4'); ?>" name="<?php echo $this->get_field_name('link4'); ?>" type="text" value="<?php echo $link4; ?>" />
+		<input id="<?php echo $this->get_field_id('checkbox4'); ?>" name="<?php echo $this->get_field_name('checkbox4'); ?>" type="checkbox" value="1" <?php checked( '1', $checkbox4 ); ?> />
+		<label for="<?php echo $this->get_field_id('checkbox4'); ?>"><?php _e('Show?', 'wp_widget_plugin'); ?></label>
+		</p>
+
+		<p>
+		<label for="<?php echo $this->get_field_id('text5'); ?>"><?php _e('Link text', 'wp_widget_plugin'); ?></label>
+		<input id="<?php echo $this->get_field_id('text5'); ?>" name="<?php echo $this->get_field_name('text5'); ?>" type="text" value="<?php echo $text5; ?>" />
+		<label for="<?php echo $this->get_field_id('link5'); ?>"><?php _e('Link URL:', 'wp_widget_plugin'); ?></label>
+		<input id="<?php echo $this->get_field_id('link5'); ?>" name="<?php echo $this->get_field_name('link5'); ?>" type="text" value="<?php echo $link5; ?>" />
+		<input id="<?php echo $this->get_field_id('checkbox5'); ?>" name="<?php echo $this->get_field_name('checkbox5'); ?>" type="checkbox" value="1" <?php checked( '1', $checkbox5 ); ?> />
+		<label for="<?php echo $this->get_field_id('checkbox5'); ?>"><?php _e('Show?', 'wp_widget_plugin'); ?></label>
+		</p>
+		<?php
+	}
+	public function update($new_instance, $old_instance) {
+		// Processes widget options to be saved
+
+		$instance = $old_instance;
+
+		// Strip tags fromt itle and name to remove HTML
+		$instance['text1'] = strip_tags($new_instance['text1']);
+		$instance['link1'] = strip_tags($new_instance['link1']);
+		$instance['checkbox1'] = strip_tags($new_instance['checkbox1']);
+
+		$instance['text2'] = strip_tags($new_instance['text2']);
+		$instance['link2'] = strip_tags($new_instance['link2']);
+		$instance['checkbox2'] = strip_tags($new_instance['checkbox2']);
+
+		$instance['text3'] = strip_tags($new_instance['text3']);
+		$instance['link3'] = strip_tags($new_instance['link3']);
+		$instance['checkbox3'] = strip_tags($new_instance['checkbox3']);
+
+		$instance['text4'] = strip_tags($new_instance['text4']);
+		$instance['link4'] = strip_tags($new_instance['link4']);
+		$instance['checkbox4'] = strip_tags($new_instance['checkbox4']);
+
+		$instance['text5'] = strip_tags($new_instance['text5']);
+		$instance['link5'] = strip_tags($new_instance['link5']);
+		$instance['checkbox5'] = strip_tags($new_instance['checkbox5']);
+		return $instance;
+	}
+}
+
+/* Twitter widget */
+class twitter_widget extends WP_Widget {
+	// Constructor
+	public function twitter_widget() {
+		// Process widget
+		$widget_ops = array( 'classname' => 'Twitter Widget', 'description' => 'Display Twitter Widget' );
+
+		$control_ops = array( 'width' => 200, 'id_base' => 'twitter_widget' );
+
+		$this->WP_Widget('twitter_widget', 'Twitter Widget', $widget_ops, $control_ops);
+	}
+
+	public function widget($args, $instance) {
+		// Outputs the content of the widget
+		extract($args);
+
+		$widget_id = $instance['widget_id'];
+
+		if (isset($instance['widget_id'])) {
+			echo '<h2 class="header">Join the Conversation</h2>';
+			echo '<a class="twitter-timeline" href="https://twitter.com/onescreen" data-widget-id="'.$widget_id.'">Tweets by @onescreen</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
+		} else {
+			echo 'Twitter Widget ID not set';
+		}
+	}
+
+	public function form($instance) {
+		if ($instance) {
+			$widget_id = $instance['widget_id'];
+		}
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'widget_id' ); ?>">Enter the widget ID from twitter:</label><br />
+			<input id="<?php echo $this->get_field_id('widget_id'); ?>" name="<?php echo $this->get_field_name('widget_id'); ?>" type="text" value="<?php echo $widget_id; ?>" />
+		</p>
+		<?php
+	}
+
+	public function update($new_instance, $old_instance) {
+		// Processes widget options to be saved
+
+		$instance = $old_instance;
+
+		$instance['widget_id'] = $new_instance['widget_id'];
+		return $instance;
+	}
+}
+
+/* Newsletter widget */
+class newsletter extends WP_Widget {
+	// Constructor
+	public function newsletter() {
+		// Process widget
+		$widget_ops = array( 'classname' => 'Newsletter Widget', 'description' => 'Display Newsletter Widget' );
+
+		$control_ops = array( 'width' => 200, 'id_base' => 'newsletter' );
+
+		$this->WP_Widget('newsletter', 'Newsletter Widget', $widget_ops, $control_ops);
+	}
+
+	public function widget($args, $instance) {
+		// Outputs the content of the widget
+		extract($args);
+		echo '<h2 class="header">Newsletter</h2>';
+		echo '<div class="row-fluid">
+	<form action="http://newsletter.onescreen.com/t/t/s/tyqh/" method="post">
+	<div class="row-fluid">
+	<div class=""><label for="fieldName">Name</label></div>
+	<div class="span12"><input id="fieldName" name="cm-name" type="text" /></div>
+	</div>
+	<div class="row-fluid">
+	<div class=""><label for="fieldEmail">Email</label></div>
+	<div class="span12"><input id="fieldEmail" name="cm-tyqh-tyqh" type="email" required /></div>
+	</div><button class="os-btn" type="submit">Subscribe</button>
+	</form></div>';
+	}
+
+	public function form($instance) {
+		?>
+
+		<?php
+	}
+
+	public function update($new_instance, $old_instance) {
+		// Processes widget options to be saved
+
+		$instance = $old_instance;
+
+		return $instance;
+	}
+}
+
 /* Dashboard widget - Search post by id */
 function register_search_post_by_id() {
 	wp_add_dashboard_widget(
@@ -495,5 +757,8 @@ function load_onescreen_widgets()
 	register_widget('most_popular_posts');\
 	register_widget('most_commented_posts');
 	register_widget('custom_text');
+	register_widget('quick_links');
+	register_widget('twitter_widget');
+	register_widget('newsletter');
 }
 ?>

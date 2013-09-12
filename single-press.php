@@ -47,17 +47,7 @@
 		<?php // Sidebar ?>
 		<div class="span4">
 			<div clss="sidebar">
-				<h2 class="header">Quick Links</h2>
-				<ul>
-					<li><?php echo do_shortcode('[about_onescreen_sidebar]'); ?></li>
-					<li><a href="/press/logo-usage-branding-guidelines/">Logo Usage &amp; Branding Guidelines</a></li>
-					<li><a href="/about/contact-us/">Contact Us</a></li>
-				</ul>
-				<h2 class="header">Newsletter</h2>
-				<p>Sign up to receive updates from OneScreen</p>
-				<?php echo do_shortcode('[newsletter]'); ?>
-				<h2 class="header">Join the Conversation</h2>
-				<?php echo do_shortcode('[twitter_feed]'); ?>
+				<?php dynamic_sidebar('sidebar'); ?>
 			</div>
 		</div>
 	</div>
