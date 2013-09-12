@@ -68,13 +68,18 @@ Template Name: Archive
 
 		</div>
 		<?php // Sidebar ?>
+
 		<div class="span4">
-			<?php echo do_shortcode('[quicklinks_sidebar title="Quicklinks" page_id="19"]'); ?>
-			<h2 class="header">Newsletter</h2>
-			<p>Sign up to receive updates from OneScreen</p>
-			<?php echo do_shortcode('[newsletter]'); ?>
-			<h2 class="header">Join the Conversation</h2>
-			<?php echo do_shortcode('[twitter_feed]'); ?>
+			<div class="sidebar">
+				<h2>Categories</h2>
+				<?php echo do_shortcode('[filter_by_categories]'); ?>
+				<?php echo do_shortcode('[search_bar]'); ?>
+				<h2 class="header">Month</h2>
+				<?php echo do_shortcode('[filter_by_months]'); ?>
+				<h2 class="header">Newsletter</h2>
+				<p>Sign up to receive updates from OneScreen</p>
+				<?php echo do_shortcode('[newsletter]'); ?>
+			</div>
 		</div>
 	</div>
 </div>

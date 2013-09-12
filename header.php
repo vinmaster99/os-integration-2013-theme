@@ -29,7 +29,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
-					<div class="nav-collapse in collapse">
+					<div class="nav-collapse" style="height: 0px;">
 						<?php wp_nav_menu( array('menu' => 'Header Navigation', 'container' => 'false', 'menu_class' => 'nav')); ?>
 					</div>
 				</div>

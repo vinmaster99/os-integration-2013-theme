@@ -19,6 +19,9 @@ Version: 1.0
 .sidebar ul {
     list-style: none !important;
 }
+.sidebar li {
+    list-style: none !important;
+}
 
 /* Previous and Next link for blog page */
 .prev {
