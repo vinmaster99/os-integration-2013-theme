@@ -766,10 +766,60 @@ function twitter_feed() {
 add_shortcode('twitter_feed', 'twitter_feed');
 
 // link to about onescreen page
-function about_onescreen_sidebar() {
-	return '<a href="http://company.onescreen.com/about">About OneScreen</a>';
+function posts_by_category($attributes) {
+	extract(shortcode_atts( 
+		array('category_name' => 'Press'), $attributes));
+
+	global $wp_query, $paged, $post;
+	$page_title = get_the_title($post->ID);
+
+	$blog_catID = get_cat_ID($category_name);
+	
+	$temp = $wp_query; $wp_query= null;
+	$wp_query = new WP_Query();
+	$wp_query->query('cat='.$blog_catID.'&posts_per_page=10' . '&paged='.$paged);
+
+	$content = '';
+
+	// for each post format it to display nicely on page
+	while ($wp_query->have_posts()) {
+		$wp_query->the_post();
+
+		$category = get_the_category();
+
+		$content .= '<h2 class="header"><a href="'.get_permalink().'" title="Read more">'.get_the_title().'</a></h2>';
+
+		$category_object = get_the_category($post->ID);
+		$temp = $category_object[0];
+		$category_link = get_category_link($temp->cat_ID);
+		$author_id = $post->post_author; $user = get_userdata($author_id); $author_name = $user->first_name . ' ' . $user->last_name;
+		
+		$content .= '<div class="cat-date-author"><small><a href="';
+		$content .= $category_link.'">';
+		$content .= $temp->name;
+		$content .= '</a></small><small> &nbsp;|&nbsp; </small><small>';
+		$content .= mysql2date('F j, Y', $post->post_date);
+		$content .= '</small>';
+		$content .= '</div>';
+		$content .= get_the_excerpt();
+		$content .= '<p><a href="'. get_permalink().'" class="read-more">Read More</a></p>';
+
+		// $content .= social_div_text();
+
+		$content .= '<div class="osdivider"></div>';
+	}
+
+	// Show pagination
+	$content .= kriesi_pagination_text('', 2);
+
+	// This is for the facebook counters
+	wp_enqueue_script('social_sharing', get_template_directory_uri().'/js/social.js', array('jquery'));
+
+	wp_reset_postdata();
+
+	return $content;
 }
-add_shortcode('about_onescreen_sidebar', 'about_onescreen_sidebar');
+add_shortcode('posts_by_category', 'posts_by_category');
 
 function quicklinks_sidebar($attributes) {
 	extract(shortcode_atts( 
