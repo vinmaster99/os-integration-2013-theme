@@ -48,7 +48,7 @@
 						<?php if (isset($category_link) && $category_link != '') : ?>
 						<a href="<?php echo $category_link; ?>"><?php echo $temp->name; ?></a><span> &nbsp|&nbsp </span>
 					<?php endif; ?>
-					<span><?php echo mysql2date('F j, Y', $post->post_date); ?></span><span> &nbsp|&nbsp </span><a href="<?php echo get_author_posts_url($post->post_author); ?>">By <?php echo $author_name; ?></a></div>
+					<span><?php echo mysql2date('F j, Y', $post->post_date); ?></span></div>
 				</div>
 				<a href="<?php the_permalink(); ?>" class="post-list-image">
 					<?php the_post_thumbnail('large', array('class' => 'featured-image')); ?>
@@ -56,9 +56,6 @@
 				<p class="post-list-content"><?php search_excerpt_highlight(); ?></p>
 
 				<a href="<?php the_permalink(); ?>" class="read-more">Read More</a>
-
-				<?php // Social div ?>
-				<?php social_div(); ?>
 
 				<div class="osdivider"></div>
 
@@ -76,10 +73,10 @@
 	<?php // Sidebar ?>
 	<div class="span4">
 		<div class="sidebar">
-			<h2 class="header">Categories</h2>
-			<?php echo do_shortcode('[filter_by_categories]'); ?>
 			<h2 class="header">Search</h2>
 			<?php echo do_shortcode('[search_bar]'); ?>
+			<h2 class="header">Categories</h2>
+			<?php echo do_shortcode('[filter_by_categories]'); ?>
 			<h2 class="header">Month</h2>
 			<?php echo do_shortcode('[filter_by_months]'); ?>
 			<h2 class="header">Newsletter</h2>

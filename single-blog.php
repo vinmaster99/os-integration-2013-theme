@@ -47,10 +47,10 @@
 		<?php // Sidebar ?>
 		<div class="span4">
 			<div class="sidebar">
-				<h2 class="header">Categories</h2>
-				<?php echo do_shortcode('[filter_by_categories]'); ?>
 				<h2 class="header">Search</h2>
 				<?php echo do_shortcode('[search_bar]'); ?>
+				<h2 class="header">Categories</h2>
+				<?php echo do_shortcode('[filter_by_categories]'); ?>
 				<h2 class="header">Month</h2>
 				<?php echo do_shortcode('[filter_by_months]'); ?>
 				<h2 class="header">Newsletter</h2>
