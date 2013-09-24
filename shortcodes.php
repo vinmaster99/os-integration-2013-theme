@@ -177,7 +177,7 @@ function oslist($attributes){
 
 	$content .= '</ul>';
 
-	return '[raw]'.$content.'[/raw]';
+	return $content;
 }
 add_shortcode('oslist', 'oslist');
 
@@ -557,7 +557,8 @@ function post_carousel($attributes) {
 		$content .= '<a href="'.$post_link.'"><img alt="" src="'.$featured_image.'"></a>';
 		$content .= '<div class="carousel-caption">';
         $content .= '<a style="color: white;" href="'.$post_link.'">'.$post_title.'</a>';
-        $content .= '<p>'.$excerpt.'</p>';
+        $content .= '</br>';
+        $content .= '<p style="line-height:100% !important;">'.$excerpt.'</p>';
       	$content .= '</div>';
       	$content .= '</div>';
       	$count++;
