@@ -556,9 +556,9 @@ function post_carousel($attributes) {
 		}
 		$content .= '<a href="'.$post_link.'"><img alt="" src="'.$featured_image.'"></a>';
 		$content .= '<div class="carousel-caption">';
-        $content .= '<a style="color: white;" href="'.$post_link.'">'.$post_title.'</a>';
+        $content .= '<a style="color: white; line-height:22px !important;" href="'.$post_link.'" >'.$post_title.'</a>';
         $content .= '</br>';
-        $content .= '<p style="line-height:100% !important;">'.$excerpt.'</p>';
+        $content .= '<p style="line-height:18px !important;">'.$excerpt.'</p>';
       	$content .= '</div>';
       	$content .= '</div>';
       	$count++;
