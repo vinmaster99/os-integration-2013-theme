@@ -20,9 +20,25 @@ Template Name: Archive
 <?php global $page; ?>
 
 <div class="container">
+	<?php if ($page_title == 'articles') { ?>
+	<div id="subheader" class="container">
+		<h1 class="header" style="text-transform: capitalize;" ><?php echo $page_title; ?></h1>
+		<div class="navbar">
+			<ul class="nav">
+			  <li><a href="/resources/">Resources</a></li>
+			  <li><a href="/resources/case-studies/">Case Studies</a></li>
+			  <li><a href="/resources/whitepapers/">Whitepapers</a></li>
+			  <li><a href="/blog/">Blog</a></li>
+			  <li class="active"><a href="/category/resources/articles/">Articles</a></li>
+			</ul>
+		</div>
+	</div>
+	<?  } else {
+			echo '<div id="subheader" class="container"><h1 class="header" style="text-transform: capitalize;">'.$page_title.'</h1></div>';
+		}
+	?>
 	<div class="row-fluid">
 		<div class="span8">
-			<?php echo "<h1 class='header' style='text-transform: capitalize;'>{$page_title}</h1>"; ?>
 			<?php
 				if ( isset($query['category_name']) && $query['category_name'] != '' ){
 					$args = array( 'category_name' => $query['category_name'], 'paged' => max(1 , get_query_var('paged')), 'posts_per_page' => 10, 'orderby' => 'post_date', 'order' => 'desc', 'post_status' => 'publish' );
