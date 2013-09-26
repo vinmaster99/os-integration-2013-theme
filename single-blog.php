@@ -1,4 +1,3 @@
-
 <?php get_header(); ?>
 
 <?php global $post; ?>
@@ -8,6 +7,12 @@
 <div class="container">
 	<div class="row-fluid">
 		<div id="content" class="span8">
+			<?php
+			// This is the back button
+			$back_url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+			echo "<a href='{$back_url}' class='list' action='action' type='button'>Back to previous page</a>";
+			?>
+
 			<h1 id="post_title" class="header"><?php echo $post->post_title; ?></h1>
 
 			<?php // Social div ?>
