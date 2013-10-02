@@ -743,7 +743,7 @@ function newsletter() {
 	<div class="row-fluid">
 	<div class=""><label for="fieldEmail">Email</label></div>
 	<div class="span12"><input id="fieldEmail" name="cm-tyqh-tyqh" type="email" required /></div>
-	</div><button class="os-btn" type="submit">Subscribe</button>
+	</div><button class="os-btn" type="submit" onclick="_gaq.push(['."'_trackEvent'".', '."'email'".', '."'subscribe'".', '."''".',, false]);">Subscribe</button>
 	</form></div>';
 	return $content;
 }
