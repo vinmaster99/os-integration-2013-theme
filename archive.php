@@ -20,13 +20,20 @@ Template Name: Archive
 <?php global $page; ?>
 
 <div class="container">
-	<?php if ($page_title == 'articles') { ?>
-	<div id="subheader" class="container">
-		<h1 class="header" style="text-transform: capitalize;" ><?php echo $page_title; ?></h1>
+<div id="subheader" class="container">
+			<?php
+			// This is the back button
+			$back_url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+			echo "<a href='{$back_url}' class='list' action='action' type='button'>Back to previous page</a>";
+			?>
+<h1 class="header" style="text-transform: capitalize;" >
+<?php echo $page_title; ?></h1>	<?php if ($page_title == 'articles') { ?>
+	
 		<div class="navbar">
 			<ul class="nav">
 			  <li><a href="/resources/">Resources</a></li>
 			  <li><a href="/resources/case-studies/">Case Studies</a></li>
+			  <li><a href="/resources/industry-guides/">Industry Guides</a></li>
 			  <li><a href="/resources/whitepapers/">Whitepapers</a></li>
 			  <li><a href="/blog/">Blog</a></li>
 			  <li class="active"><a href="/category/resources/articles/">Articles</a></li>
@@ -34,7 +41,7 @@ Template Name: Archive
 		</div>
 	</div>
 	<?  } else {
-			echo '<div id="subheader" class="container"><h1 class="header" style="text-transform: capitalize;">'.$page_title.'</h1></div>';
+			echo '';
 		}
 	?>
 	<div class="row-fluid">
