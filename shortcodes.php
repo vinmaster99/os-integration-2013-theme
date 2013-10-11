@@ -545,8 +545,10 @@ function post_carousel($attributes) {
 			if (isset($post_images[$count]))
 				$featured_image = $post_images[$count];
 		}
-		$excerpt = get_excerpt_by_id($post_id);
-		$excerpt = substr($excerpt, 0, $excerpt_length);
+		if ($excerpt_length != 0) {
+			$excerpt = get_excerpt_by_id($post_id);
+			$excerpt = substr($excerpt, 0, $excerpt_length);
+		}
 
 		if ($first) {
 			$content .= '<div class="item active">';
@@ -558,7 +560,9 @@ function post_carousel($attributes) {
 		$content .= '<div class="carousel-caption">';
         $content .= '<a style="color: white; line-height:22px !important;" href="'.$post_link.'" >'.$post_title.'</a>';
         $content .= '</br>';
-        $content .= '<p style="line-height:18px !important;">'.$excerpt.'</p>';
+        if ($excerpt_length != 0) {
+        	$content .= '<p style="line-height:18px !important;">'.$excerpt.'</p>';
+        }
       	$content .= '</div>';
       	$content .= '</div>';
       	$count++;
