@@ -442,7 +442,7 @@ function social_div_text() {
 	$social_link = get_permalink();
 
 	$content .= '<li class="facebook-share" style="display: inline;">';
-	$content .= '<div style="margin-top: -2px; float:left;"><a href="https://www.facebook.com/sharer/sharer.php?u='.$social_link.'" target="_blank"><img src="http://www.onescreen.com/files/fb_share_button.png"></a></div>';
+	$content .= '<div style="margin-top: -2px; float:left;"><a href="https://www.facebook.com/sharer/sharer.php?u='.$social_link.'" target="_blank"><img src="http://company.onescreen.com/files/fb_share_button.png"></a></div>';
 	$content .= '<div class="arrow_box pluginCountButton">0</div></li>';
 
 	$content .= '<li style="display: inline;"><a href="https://twitter.com/share" class="twitter-share-button" data-url="'.$social_link.'" data-text="'.get_the_title().'" data-via="onescreen">Tweet</a>';

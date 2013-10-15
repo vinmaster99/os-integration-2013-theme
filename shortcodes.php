@@ -846,4 +846,43 @@ function quicklinks_sidebar($attributes) {
 }
 add_shortcode('quicklinks_sidebar', 'quicklinks_sidebar');
 
+function social_shortcode($attributes) {
+	extract(shortcode_atts( 
+		array('social_link' => 'none', 
+			'title' => 'none'), $attributes));
+
+	$content = '<ul class="social">';
+	if ($social_link == 'none')
+		$social_link = get_permalink();
+	if ($title == 'none')
+		$title = get_the_title();
+
+	$content .= '<li class="facebook-share" style="display: inline;">';
+	$content .= '<div style="margin-top: -2px; float:left;"><a href="https://www.facebook.com/sharer/sharer.php?u='.$social_link.'" target="_blank"><img src="http://company.onescreen.com/files/fb_share_button.png"></a></div>';
+	$content .= '<div class="arrow_box pluginCountButton">0</div></li>';
+
+	$content .= '<li style="display: inline;"><a href="https://twitter.com/share" class="twitter-share-button" data-url="'.$social_link.'" data-text="'.$title.'" data-via="onescreen">Tweet</a>';
+	$content .= '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script>';
+	$content .= '</li>';
+
+	$content .= '<li style="display: inline;"><script src="//platform.linkedin.com/in.js" type="text/javascript">';
+	$content .= 'lang: en_US</script>';
+	$content .= '<script type="IN/Share" data-url="'.$social_link.'" data-counter="right"></script>';
+	$content .= '</li>';
+
+	$content .= '<li style="display: inline;"><div class="g-plus" data-action="share" data-annotation="bubble" data-href="'.$social_link.'"></div>';
+	$content .= "<div><script type='text/javascript'>
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script></div></li>";
+
+	$content .= '</ul>';
+
+	return $content;
+}
+add_shortcode('social_shortcode', 'social_shortcode');
+
 ?>
