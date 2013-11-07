@@ -379,3 +379,7 @@ a[href$='.pdf'] {
         width: 960px !important;
     }
 }
+
+#recaptcha_widget_div {
+    float: left;
+}

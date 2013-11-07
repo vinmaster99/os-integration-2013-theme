@@ -21,7 +21,7 @@ Template Name: Press
 			<div class="span8"><?php echo do_shortcode('[posts_by_category category_name='.$category_name.']'); ?></div>
 			<div class="span4">
 				<div class="sidebar">
-					<?php dynamic_sidebar('sidebar'); ?>
+					<?php dynamic_sidebar('sidebar'); // Managed by wordpress widgets sidebar ?>
 				</div>
 			</div>
 		</div>
@@ -38,8 +38,8 @@ Template Name: Press
 		<div class="row-fluid">
 			<div class="span8"><?php echo do_shortcode('[press_posts]'); ?></div>
 			<div class="span4">
-				<div class="sidebar">
-					<?php dynamic_sidebar('sidebar'); ?>
+				<div class="sidebar">l
+					<?php dynamic_sidebar('sidebar'); // Managed by wordpress widgets sidebar ?>
 				</div>
 			</div>
 		</div>

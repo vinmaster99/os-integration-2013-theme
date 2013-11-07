@@ -51,7 +51,7 @@
 		<?php // Sidebar ?>
 		<div class="span4">
 			<div clss="sidebar">
-				<?php dynamic_sidebar('sidebar'); ?>
+				<?php dynamic_sidebar('sidebar'); // Managed by wordpress widgets sidebar ?>
 			</div>
 		</div>
 	</div>
